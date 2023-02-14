@@ -2,7 +2,7 @@ import AppAside from './components/app/AppAside';
 import AppHeader from './components/app/AppHeader';
 import AppLayout from './components/app/AppLayout';
 import Editor from './components/editor/Editor';
-import EditorFunctionButtons from './components/editor/EditorFunctionButtons';
+import EditorFormatButtons from './components/editor/EditorFormatButtons';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       Aside={<AppAside />}
       Main={
         <Editor>
-          <EditorFunctionButtons />
+          <EditorFormatButtons />
         </Editor>
       }
     />

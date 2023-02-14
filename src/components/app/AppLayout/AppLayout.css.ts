@@ -5,13 +5,13 @@ export const header = style({
   top: 0,
   left: 0,
   width: '100%',
-  height: '3.5rem',
+  height: '3rem',
   display: 'flex',
   alignItems: 'center',
 });
 
 export const content = style({
   display: 'flex',
-  paddingTop: '3.5rem',
-  height: 'calc(100% - 3.5rem)',
+  paddingTop: '3rem',
+  height: 'calc(100% - 3rem)',
 });

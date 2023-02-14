@@ -1,9 +1,9 @@
 import { promiseUtils } from '@/lib/utils';
 import { editorService } from '@/services';
 
-import { block, button } from './EditorFunctionButtons.css';
+import { block, button } from './EditorFormatButtons.css';
 
-export default function EditorFunctionButtons() {
+export default function EditorFormatButtons() {
   const formatAll = () => {
     Promise.allSettled([
       editorService.formatOrigin(),

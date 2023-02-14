@@ -1,4 +1,4 @@
-import { IndexDBSchemaConfig, IndexedDBConfig } from './config';
+import { IndexedDBConfig, IndexedDBSchemaConfig } from './config';
 
 type UpgradeCallback = (
   event: IDBVersionChangeEvent,
@@ -48,7 +48,7 @@ export function initializeDatabase() {
   return openDatabase((event, db) => {
     if (event.oldVersion === 0) {
       console.log('initialize object tables');
-      IndexDBSchemaConfig.forEach((config) => {
+      IndexedDBSchemaConfig.forEach((config) => {
         db.createObjectStore(config.name, { ...config.keyConfig });
       });
     }

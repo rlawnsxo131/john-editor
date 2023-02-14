@@ -12,7 +12,7 @@ export type IndexedDBStore = Readonly<{
   };
 }>;
 
-export const IndexDBSchemaConfig: Readonly<IndexedDBStore[]> = [
+export const IndexedDBSchemaConfig: Readonly<IndexedDBStore[]> = [
   {
     name: 'json',
     keyConfig: {

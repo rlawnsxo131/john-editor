@@ -1,13 +1,13 @@
 import type { PropsWithChildren } from 'react';
 
 import useRefEffect from '@/hooks/useRefEffect';
-import { editorActions } from '@/lib/editor';
+import { editorService } from '@/services';
 
 import { block, editor } from './Editor.css';
 
 export default function Editor({ children }: PropsWithChildren) {
   const containerRef = useRefEffect((div: HTMLDivElement) => {
-    editorActions.initializeEditor(div);
+    editorService.initializeEditor(div);
   }, []);
 
   return (
