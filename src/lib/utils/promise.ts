@@ -1,5 +1,5 @@
-export function isEveryFulfilledSettledResult(
-  resultList: PromiseSettledResult<void | undefined>[],
-) {
-  return resultList.every((result) => result.status === 'fulfilled');
+export function isFulfilledSettledResult<T>(
+  result: PromiseSettledResult<T>,
+): result is PromiseFulfilledResult<T> {
+  return result.status === 'fulfilled';
 }

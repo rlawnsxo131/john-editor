@@ -6,11 +6,12 @@
   "type": "module",
   "scripts": {
     "sdk": "yarn dlx @yarnpkg/sdks vscode",
-    "start:dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "start:dev": "vite --port 8000",
+    "preview": "vite preview --port 8000",
+    "build": "tsc && vite build"
   },
   "dependencies": {
+    "@radix-ui/colors": "^0.1.8",
     "@vanilla-extract/css": "^1.9.5",
     "monaco-editor": "^0.35.0",
     "react": "^18.2.0",

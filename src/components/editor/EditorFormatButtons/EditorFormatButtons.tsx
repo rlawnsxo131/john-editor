@@ -9,11 +9,16 @@ export default function EditorFormatButtons() {
       editorService.formatOrigin(),
       editorService.formatModify(),
     ]).then((result) => {
-      if (promiseUtils.isEveryFulfilledSettledResult(result)) return;
-      console.error('error');
+      result.forEach((task) => {
+        if (!promiseUtils.isFulfilledSettledResult(task)) {
+          console.error('error');
+        }
+      });
     });
   };
+
   const formatLeft = () => editorService.formatOrigin();
+
   const formatRight = () => editorService.formatModify();
 
   return (

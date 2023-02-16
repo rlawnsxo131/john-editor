@@ -4,6 +4,7 @@ globalStyle('html, body, #root', {
   margin: 0,
   padding: 0,
   height: '100%',
+  boxSizing: 'border-box',
   fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
   colorScheme: 'light dark',
   fontSynthesis: 'none',
@@ -11,6 +12,9 @@ globalStyle('html, body, #root', {
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   WebkitTextSizeAdjust: '100%',
+  // '@media': {
+  //   '@media (prefers-color-scheme: light)': {},
+  // },
   //   @media (prefers-color-scheme: light) {
   //     :root {
   //       color: #213547;
@@ -19,6 +23,6 @@ globalStyle('html, body, #root', {
   //   }
 });
 
-globalStyle('*', {
+globalStyle('*:not(html, body, #root)', {
   boxSizing: 'inherit',
 });
