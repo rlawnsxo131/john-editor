@@ -1,21 +1,17 @@
-import type { ReactNode } from 'react';
+import AppLayoutAside from './AppLayoutAside';
+import AppLayoutBody from './AppLayoutBody';
+import AppLayoutContainer from './AppLayoutContainer';
+import AppLayoutHeader from './AppLayoutHeader';
+import AppLayoutMain from './AppLayoutMain';
 
-import { content, header } from './AppLayout.css';
+/**
+ * App.tsx should be referenced
+ */
+const AppLayout = Object.assign(AppLayoutContainer, {
+  Header: AppLayoutHeader,
+  Body: AppLayoutBody,
+  Main: AppLayoutMain,
+  Aside: AppLayoutAside,
+});
 
-type Props = {
-  Header: ReactNode;
-  Aside: ReactNode;
-  Main: ReactNode;
-};
-
-export default function AppLayout({ Header, Aside, Main }: Props) {
-  return (
-    <>
-      <header className={header}>{Header}</header>
-      <div className={content}>
-        {Aside}
-        {Main}
-      </div>
-    </>
-  );
-}
+export default AppLayout;

@@ -10,8 +10,33 @@ export const header = style({
   alignItems: 'center',
 });
 
-export const content = style({
+export const headerContent = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  paddingLeft: '1rem',
+  paddingRight: '1rem',
+});
+
+export const headerTitleLogo = style({
+  fontSize: '1.5rem',
+  fontWeight: 500,
+});
+
+export const body = style({
   display: 'flex',
   paddingTop: '3rem',
-  height: 'calc(100% - 3rem)',
+  height: '100%',
+});
+
+export const main = style({
+  flex: 1,
+  display: 'flex',
+});
+
+export const aside = style({
+  display: 'flex',
+  flexDirection: 'column',
+  paddingLeft: '1rem',
+  paddingRight: '1rem',
 });

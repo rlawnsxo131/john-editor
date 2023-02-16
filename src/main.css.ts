@@ -23,6 +23,6 @@ globalStyle('html, body, #root', {
   //   }
 });
 
-globalStyle('*:not(html, body, #root)', {
+globalStyle('html, body, #root *', {
   boxSizing: 'inherit',
 });

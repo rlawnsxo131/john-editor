@@ -8,9 +8,9 @@ export default function EditorFormatButtons() {
     Promise.allSettled([
       editorService.formatOrigin(),
       editorService.formatModify(),
-    ]).then((result) => {
-      result.forEach((task) => {
-        if (!promiseUtils.isFulfilledSettledResult(task)) {
+    ]).then((results) => {
+      results.forEach((result) => {
+        if (!promiseUtils.isFulfilled(result)) {
           console.error('error');
         }
       });
