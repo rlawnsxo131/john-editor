@@ -13,7 +13,7 @@ type ColorKey =
 type ColorVar = Record<ColorKey, ColorKey>;
 
 const initialColorVar = {
-  white: '',
+  white: '#FFFFFF',
 };
 
 const color = Object.keys(
@@ -34,7 +34,7 @@ export const vars = createGlobalThemeContract(
 
 createGlobalTheme('[data-theme="light"]', vars, {
   color: {
-    white: '#FFFFFF',
+    ...initialColorVar,
     ...cyan,
     ...gray,
     ...red,
@@ -43,7 +43,7 @@ createGlobalTheme('[data-theme="light"]', vars, {
 
 createGlobalTheme('[data-theme="dark"]', vars, {
   color: {
-    white: '#FFFFFF',
+    ...initialColorVar,
     ...cyanDark,
     ...grayDark,
     ...redDark,
