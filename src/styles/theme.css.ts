@@ -4,10 +4,8 @@ import {
   createGlobalThemeContract,
 } from '@vanilla-extract/css';
 
-type Color = Record<
-  keyof typeof cyan | keyof typeof gray | keyof typeof red,
-  string
->;
+type ColorKey = keyof typeof cyan | keyof typeof gray | keyof typeof red;
+type Color = Record<ColorKey, ColorKey>;
 
 const color = Object.keys({ ...cyan, ...gray, ...red }).reduce<
   Record<string, string>
