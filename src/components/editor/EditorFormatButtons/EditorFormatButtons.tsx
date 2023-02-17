@@ -9,9 +9,9 @@ export default function EditorFormatButtons() {
       editorService.formatOrigin(),
       editorService.formatModify(),
     ]).then((results) => {
-      results.forEach((result) => {
+      results.forEach((result, idx) => {
         if (!promiseUtils.isFulfilled(result)) {
-          console.error('error');
+          console.error('error idx:', idx);
         }
       });
     });
