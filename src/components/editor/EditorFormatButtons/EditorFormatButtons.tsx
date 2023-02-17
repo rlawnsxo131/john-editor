@@ -17,9 +17,15 @@ export default function EditorFormatButtons() {
     });
   };
 
-  const formatLeft = () => editorService.formatOrigin();
+  const formatLeft = () =>
+    editorService.formatOrigin()?.catch((reason) => {
+      console.error(reason);
+    });
 
-  const formatRight = () => editorService.formatModify();
+  const formatRight = () =>
+    editorService.formatModify()?.catch((reason) => {
+      console.error(reason);
+    });
 
   return (
     <div className={block}>
