@@ -1,5 +1,7 @@
 import { globalStyle } from '@vanilla-extract/css';
 
+import { vars } from './styles/theme.css';
+
 globalStyle('html, body, #root', {
   margin: 0,
   padding: 0,
@@ -12,15 +14,12 @@ globalStyle('html, body, #root', {
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   WebkitTextSizeAdjust: '100%',
-  // '@media': {
-  //   '@media (prefers-color-scheme: light)': {},
-  // },
-  //   @media (prefers-color-scheme: light) {
-  //     :root {
-  //       color: #213547;
-  //       background-color: #ffffff;
-  //     }
-  //   }
+  background: vars.bg.background,
+  '@media': {
+    '(prefers-color-scheme: dark)': {
+      background: vars.color.gray2,
+    },
+  },
 });
 
 globalStyle('html, body, #root *', {

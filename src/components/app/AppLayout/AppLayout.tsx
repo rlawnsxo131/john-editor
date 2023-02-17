@@ -9,7 +9,7 @@ import AppLayoutMain from './AppLayoutMain';
  * App.tsx should be referenced
  */
 const AppLayout = Object.assign(
-  ({ children }: PropsWithChildren) => <>{children}</>,
+  ({ children }: Required<PropsWithChildren>) => <>{children}</>,
   {
     Header: AppLayoutHeader,
     Body: AppLayoutBody,

@@ -4,32 +4,55 @@ import {
   createGlobalThemeContract,
 } from '@vanilla-extract/css';
 
-type ColorKey = keyof typeof cyan | keyof typeof gray | keyof typeof red;
-type Color = Record<ColorKey, ColorKey>;
+type ColorKey =
+  | keyof typeof cyan
+  | keyof typeof gray
+  | keyof typeof red
+  | keyof typeof initialColorVar;
 
-const color = Object.keys({ ...cyan, ...gray, ...red }).reduce<
+type ColorVar = Record<ColorKey, ColorKey>;
+
+const initialColorVar = {
+  white: 'white',
+};
+
+const color = Object.keys(Object.assign(cyan, gray, red)).reduce<
   Record<string, string>
 >((acc, key) => {
   acc[key] = key;
   return acc;
-}, {}) as Color;
+}, initialColorVar) as ColorVar;
 
-export const vars = createGlobalThemeContract({
-  color,
-});
+export const vars = createGlobalThemeContract(
+  {
+    color,
+    bg: {
+      background: 'background',
+    },
+  },
+  (value) => `--color-${value}`,
+);
 
 createGlobalTheme('[data-theme="light"]', vars, {
   color: {
-    ...gray,
+    white: '#FFFFFF',
     ...cyan,
+    ...gray,
     ...red,
+  },
+  bg: {
+    background: vars.color.white,
   },
 });
 
 createGlobalTheme('[data-theme="dark"]', vars, {
   color: {
-    ...grayDark,
+    white: '#FFFFFF',
     ...cyanDark,
+    ...grayDark,
     ...redDark,
+  },
+  bg: {
+    background: vars.color.gray2,
   },
 });
