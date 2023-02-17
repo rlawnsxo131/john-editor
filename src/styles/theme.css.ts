@@ -17,7 +17,7 @@ const initialColorVar = {
 };
 
 const lightColors = Object.assign({}, initialColorVar, cyan, gray, red);
-const color = Object.keys(lightColors).reduce<Record<string, string>>(
+const colorVar = Object.keys(lightColors).reduce<Record<string, string>>(
   (acc, key) => {
     acc[key] = key;
     return acc;
@@ -28,7 +28,7 @@ const color = Object.keys(lightColors).reduce<Record<string, string>>(
 export const vars = createGlobalThemeContract(
   {
     color: {
-      ...color,
+      ...colorVar,
     },
   },
   (value) => `--color-${value}`,
