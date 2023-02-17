@@ -1,21 +1,37 @@
-import { cyan, cyanDark } from '@radix-ui/colors';
-import { createTheme, createThemeContract } from '@vanilla-extract/css';
+import { cyan, cyanDark, gray, grayDark, red, redDark } from '@radix-ui/colors';
+import {
+  createGlobalTheme,
+  createGlobalThemeContract,
+} from '@vanilla-extract/css';
 
-export const vars = createThemeContract({
-  color: Object.keys(cyan).reduce<Record<string, string | null>>((acc, key) => {
-    acc[key] = null;
-    return acc;
-  }, {}),
+type Color = Record<
+  keyof typeof cyan | keyof typeof gray | keyof typeof red,
+  string
+>;
+
+const color = Object.keys({ ...cyan, ...gray, ...red }).reduce<
+  Record<string, string>
+>((acc, key) => {
+  acc[key] = key;
+  return acc;
+}, {}) as Color;
+
+export const vars = createGlobalThemeContract({
+  color,
 });
 
-export const lightClass = createTheme(vars, {
+createGlobalTheme('[data-theme="light"]', vars, {
   color: {
+    ...gray,
     ...cyan,
+    ...red,
   },
 });
 
-export const darkClass = createTheme(vars, {
+createGlobalTheme('[data-theme="dark"]', vars, {
   color: {
+    ...grayDark,
     ...cyanDark,
+    ...redDark,
   },
 });
