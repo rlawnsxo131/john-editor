@@ -14,7 +14,6 @@ globalStyle('html, body, #root', {
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   WebkitTextSizeAdjust: '100%',
-  background: vars.bg.background,
   '@media': {
     '(prefers-color-scheme: dark)': {
       background: vars.color.gray2,
@@ -24,4 +23,8 @@ globalStyle('html, body, #root', {
 
 globalStyle('html, body, #root *', {
   boxSizing: 'inherit',
+});
+
+globalStyle(':root[data-theme="dark"]', {
+  background: vars.color.gray2,
 });

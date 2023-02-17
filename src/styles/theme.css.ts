@@ -26,9 +26,6 @@ const color = Object.keys(Object.assign(cyan, gray, red)).reduce<
 export const vars = createGlobalThemeContract(
   {
     color,
-    bg: {
-      background: 'background',
-    },
   },
   (value) => `--color-${value}`,
 );
@@ -40,9 +37,6 @@ createGlobalTheme('[data-theme="light"]', vars, {
     ...gray,
     ...red,
   },
-  bg: {
-    background: vars.color.white,
-  },
 });
 
 createGlobalTheme('[data-theme="dark"]', vars, {
@@ -51,8 +45,5 @@ createGlobalTheme('[data-theme="dark"]', vars, {
     ...cyanDark,
     ...grayDark,
     ...redDark,
-  },
-  bg: {
-    background: vars.color.gray2,
   },
 });
