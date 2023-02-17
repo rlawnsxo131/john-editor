@@ -6,6 +6,10 @@ import monacoEditorPlugin from 'vite-plugin-monaco-editor';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    rollupOptions: {},
+    reportCompressedSize: true,
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
@@ -25,12 +29,12 @@ export default defineConfig({
       /**
        * https://stackblitz.com/edit/monaco-graphql-react-vite?file=src%2FApp.tsx&terminal=dev
        */
-      customWorkers: [
-        {
-          label: 'graphql',
-          entry: 'monaco-graphql/esm/graphql.worker',
-        },
-      ],
+      // customWorkers: [
+      //   {
+      //     label: 'graphql',
+      //     entry: 'monaco-graphql/esm/graphql.worker',
+      //   },
+      // ],
       // publicPath: '/',
       // globalAPI: false,
     }),
