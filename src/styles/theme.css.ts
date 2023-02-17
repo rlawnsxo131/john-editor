@@ -13,19 +13,21 @@ type ColorKey =
 type ColorVar = Record<ColorKey, ColorKey>;
 
 const initialColorVar = {
-  white: 'white',
+  white: '',
 };
 
-const color = Object.keys(Object.assign(cyan, gray, red)).reduce<
-  Record<string, string>
->((acc, key) => {
+const color = Object.keys(
+  Object.assign(initialColorVar, cyan, gray, red),
+).reduce<Record<string, string>>((acc, key) => {
   acc[key] = key;
   return acc;
-}, initialColorVar) as ColorVar;
+}, {}) as ColorVar;
 
 export const vars = createGlobalThemeContract(
   {
-    color,
+    color: {
+      ...color,
+    },
   },
   (value) => `--color-${value}`,
 );
