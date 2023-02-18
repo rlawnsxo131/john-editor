@@ -14,7 +14,7 @@ type ColorVar = Record<ColorKey, ColorKey>;
 
 const initialColorVar = {
   white: '#FFFFFF',
-};
+} as const;
 
 const lightColors = {
   ...initialColorVar,
