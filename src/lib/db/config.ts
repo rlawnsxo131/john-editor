@@ -1,11 +1,4 @@
-import type { SupportLanguage } from '@/@types';
-
-export type IndexedDBStore = Readonly<{
-  name: SupportLanguage;
-  keyConfig: {
-    autoIncrement: boolean;
-  };
-}>;
+import type { IndexedDBStore } from './types';
 
 export const IndexedDBConfig = {
   name: 'john-editor',
