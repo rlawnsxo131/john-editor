@@ -15,6 +15,7 @@ This is a web editor based on Monaco Editor
 - Yarn Berry
 - TypeScript
 - Vite
+- React
 - vanilla-extract
 - AWS(expected)
   - S3
