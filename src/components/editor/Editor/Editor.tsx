@@ -5,7 +5,7 @@ import { editorService } from '@/services';
 
 import { block, editor } from './Editor.css';
 
-export default function Editor({ children }: PropsWithChildren) {
+export default function Editor({ children }: Required<PropsWithChildren>) {
   const containerRef = useRefEffect((div: HTMLDivElement) => {
     editorService.initializeEditor(div);
   }, []);
