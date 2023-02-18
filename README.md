@@ -1,9 +1,9 @@
 # devlog-v3
 
-Website link:
+link:
 
 ```
-This is a web editor based on Monaco Editor
+A simple web editor based on Monaco Editor and IndexedDB.
 ```
 
 ### Favicon Color Hex
