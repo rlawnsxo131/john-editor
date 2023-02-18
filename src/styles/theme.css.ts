@@ -16,7 +16,7 @@ const initialColorVar = {
   white: '#FFFFFF',
 };
 
-const lightColors = { ...initialColorVar, ...cyan, ...gray, ...red };
+const lightColors = Object.assign({}, initialColorVar, cyan, gray, red);
 const colorVar = (Object.keys(lightColors) as ColorKey[]).reduce<ColorVar>(
   (acc, key) => {
     acc[key] = key;
