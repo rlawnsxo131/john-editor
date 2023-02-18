@@ -2,6 +2,7 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import checker from 'vite-plugin-checker';
 import monacoEditorPlugin from 'vite-plugin-monaco-editor';
 
 // https://vitejs.dev/config/
@@ -18,6 +19,9 @@ export default defineConfig({
   plugins: [
     react(),
     vanillaExtractPlugin(),
+    checker({
+      typescript: true,
+    }),
     monacoEditorPlugin.default({
       languageWorkers: [
         'css',

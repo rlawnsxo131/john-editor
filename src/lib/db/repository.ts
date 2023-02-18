@@ -1,5 +1,5 @@
-import type { IndexedDBStore } from './config';
 import { openDatabase } from './database';
+import type { IndexedDBStore } from './types';
 
 export function add<T>(
   storeName: IndexedDBStore['name'],
