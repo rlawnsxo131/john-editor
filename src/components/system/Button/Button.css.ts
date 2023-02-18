@@ -1,13 +1,17 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 
 const base = style({
-  border: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  border: 'none',
+  outline: 'none',
   borderRadius: '3px',
   lineHeight: 'normal',
   cursor: 'pointer',
 });
 
-export const variants = styleVariants({
+export const color = styleVariants({
   primary: [base, {}],
   ghost: [base, {}],
 });

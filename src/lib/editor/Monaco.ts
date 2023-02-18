@@ -2,7 +2,7 @@ import { editor } from 'monaco-editor';
 
 import type { SupportLanguage } from '@/@types';
 
-type ManacoModel = {
+type MonacoModel = {
   value: string;
   language: SupportLanguage;
 };
@@ -41,12 +41,12 @@ export default class Monaco {
     return this.#instance;
   }
 
-  public setModel(models: [ManacoModel, ManacoModel]) {
+  public setModel(models: [MonacoModel, MonacoModel]) {
     const [original, modified] = models.map((model) =>
       editor.createModel(model.value, model.language),
     );
 
-    this.#editor.setModel({
+    return this.#editor.setModel({
       original,
       modified,
     });
