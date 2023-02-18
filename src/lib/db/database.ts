@@ -44,13 +44,17 @@ export function openDatabase(upgradeCallback?: UpgradeCallback) {
   });
 }
 
-export function initializeDatabase() {
+export async function initializeDatabase() {
   return openDatabase((event, db) => {
     if (event.oldVersion === 0) {
-      console.log('initialize object tables');
-      IndexedDBSchemaConfig.forEach((config) => {
-        db.createObjectStore(config.name, { ...config.keyConfig });
-      });
+      const names = IndexedDBSchemaConfig.reduce<string[]>((acc, config) => {
+        const { name } = db.createObjectStore(config.name, {
+          ...config.keyConfig,
+        });
+        acc.push(name);
+        return acc;
+      }, []);
+      console.log('create tables:', names.join());
     }
   }).then((db) => db.close());
 }

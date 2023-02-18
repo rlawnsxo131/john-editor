@@ -14,6 +14,9 @@ initializeDatabase()
   .then((_) => repository.getByKey('json', 1))
   .then((data) => {
     console.log(data);
+  })
+  .catch((err) => {
+    console.error('err: ', err);
   });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
