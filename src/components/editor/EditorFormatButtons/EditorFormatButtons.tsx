@@ -1,7 +1,8 @@
+import Button from '@/components/system/Button';
 import { promiseUtils } from '@/lib/utils';
 import { editorService } from '@/services';
 
-import { block, button } from './EditorFormatButtons.css';
+import { block } from './EditorFormatButtons.css';
 
 export default function EditorFormatButtons() {
   const formatAll = () => {
@@ -29,15 +30,9 @@ export default function EditorFormatButtons() {
 
   return (
     <div className={block}>
-      <button className={button} onClick={formatAll}>
-        pretty all
-      </button>
-      <button className={button} onClick={formatLeft}>
-        pretty left
-      </button>
-      <button className={button} onClick={formatRight}>
-        pretty right
-      </button>
+      <Button onClick={formatLeft}>Pretty Left</Button>
+      <Button onClick={formatAll}>Pretty All</Button>
+      <Button onClick={formatRight}>Pretty Right</Button>
     </div>
   );
 }

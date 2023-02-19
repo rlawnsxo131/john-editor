@@ -4,20 +4,25 @@ import {
   createGlobalThemeContract,
 } from '@vanilla-extract/css';
 
+import { themeDatasetSelector } from './selectors';
+
 type ColorKey =
   | keyof typeof cyan
   | keyof typeof gray
   | keyof typeof red
-  | keyof typeof initialColorVar;
+  | keyof typeof staticColorVar;
 
 type ColorVar = Record<ColorKey, ColorKey>;
 
-const initialColorVar = {
-  white: '#FFFFFF',
+const staticColorVar = {
+  white: '#FFF',
+
+  'btn-primary': 'hsl(191deg 91% 37%)',
+  'btn-primary-hover': 'hsl(190, 95.0%, 39.0%)',
 } as const;
 
 const lightColors = {
-  ...initialColorVar,
+  ...staticColorVar,
   ...cyan,
   ...gray,
   ...red,
@@ -40,15 +45,15 @@ export const vars = createGlobalThemeContract(
   (value) => `--color-${value}`,
 );
 
-createGlobalTheme('[data-theme="light"]', vars, {
+createGlobalTheme(themeDatasetSelector.light, vars, {
   color: {
     ...lightColors,
   },
 });
 
-createGlobalTheme('[data-theme="dark"]', vars, {
+createGlobalTheme(themeDatasetSelector.dark, vars, {
   color: {
-    ...initialColorVar,
+    ...staticColorVar,
     ...cyanDark,
     ...grayDark,
     ...redDark,

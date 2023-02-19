@@ -4,3 +4,5 @@ export type SupportLanguage =
   | 'graphql'
   | 'javascript'
   | 'typescript';
+
+export type Theme = 'dark' | 'light';

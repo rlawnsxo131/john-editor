@@ -1,5 +1,6 @@
 import { globalStyle } from '@vanilla-extract/css';
 
+import { themeDatasetSelector } from './styles/selectors';
 import { vars } from './styles/theme.css';
 
 globalStyle('html, body, #root', {
@@ -25,6 +26,10 @@ globalStyle('html, body, #root *', {
   boxSizing: 'inherit',
 });
 
-globalStyle(':root[data-theme="dark"]', {
+globalStyle(themeDatasetSelector.dark, {
   background: vars.color.gray2,
+});
+
+globalStyle('h1, h2, h3, h4, h5, h6', {
+  color: vars.color.gray12,
 });

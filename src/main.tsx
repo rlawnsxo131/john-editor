@@ -12,9 +12,7 @@ import { initializeDatabase, repository } from './lib/db';
  */
 initializeDatabase()
   .then((_) => repository.getByKey('json', 1))
-  .then((data) => {
-    console.log(data);
-  })
+  .then((data) => console.log(data))
   .catch((err) => {
     console.error('err: ', err);
   });

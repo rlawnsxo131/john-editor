@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.dataset.theme = 'dark';
+    <script type="module">
+      const storageTheme = localStorage.getItem('theme');
+      if (storageTheme) {
+        document.documentElement.dataset.theme = storageTheme;
       } else {
-        document.documentElement.dataset.theme = 'light';
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.dataset.theme = 'dark';
+        } else {
+          document.documentElement.dataset.theme = 'light';
+        }
       }
     </script>
     <title>John Editor</title>

@@ -5,12 +5,13 @@ export const header = style({
   top: 0,
   left: 0,
   width: '100%',
-  height: '3rem',
+  height: '4rem',
   display: 'flex',
   alignItems: 'center',
 });
 
 export const headerContent = style({
+  flex: 1,
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -25,7 +26,7 @@ export const headerTitleLogo = style({
 
 export const body = style({
   display: 'flex',
-  paddingTop: '3rem',
+  paddingTop: '4rem',
   height: '100%',
 });
 

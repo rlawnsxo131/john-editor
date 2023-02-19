@@ -1,6 +1,6 @@
 import { editor } from 'monaco-editor';
 
-import type { SupportLanguage } from '@/@types';
+import type { SupportLanguage, Theme } from '@/@types';
 
 type MonacoModel = {
   value: string;
@@ -16,9 +16,9 @@ export default class Monaco {
 
   #editor: editor.IStandaloneDiffEditor;
 
-  private constructor(div: HTMLDivElement) {
+  private constructor(div: HTMLDivElement, theme?: Theme) {
     this.#editor = editor.createDiffEditor(div, {
-      theme: 'vs-dark',
+      theme: this.#getTheme(theme),
       autoIndent: 'full',
       formatOnType: true,
       originalEditable: true,
@@ -27,7 +27,11 @@ export default class Monaco {
     });
   }
 
-  public static getInstance(div?: HTMLDivElement) {
+  #getTheme(theme?: Theme) {
+    return theme === 'dark' ? 'vs-dark' : 'vs';
+  }
+
+  public static getInstance(div?: HTMLDivElement, theme?: Theme) {
     if (!this.#instance) {
       editor.onDidCreateDiffEditor((_: editor.IDiffEditor) => {
         console.log('create diff editor');
@@ -35,8 +39,11 @@ export default class Monaco {
 
       if (!div) {
         throw new Error('Manaco initialization requires div');
+      } else if (!theme) {
+        throw new Error('Manaco initialization requires theme value');
       }
-      return (this.#instance = new this(div));
+
+      return (this.#instance = new this(div, theme));
     }
     return this.#instance;
   }
@@ -50,6 +57,10 @@ export default class Monaco {
       original,
       modified,
     });
+  }
+
+  public setTheme(theme: Theme) {
+    return editor.setTheme(this.#getTheme(theme));
   }
 
   public formatOrigin() {

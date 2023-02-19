@@ -1,7 +1,8 @@
+import type { Theme } from '@/@types';
 import { Monaco } from '@/lib/editor';
 
-export function initializeEditor(div: HTMLDivElement) {
-  const editor = Monaco.getInstance(div);
+export function initializeEditor(div: HTMLDivElement, theme: Theme) {
+  const editor = Monaco.getInstance(div, theme);
 
   editor.setModel([
     {
@@ -15,6 +16,10 @@ export function initializeEditor(div: HTMLDivElement) {
   ]);
 
   return editor;
+}
+
+export function setTheme(theme: Theme) {
+  return Monaco.getInstance().setTheme(theme);
 }
 
 export function formatOrigin() {

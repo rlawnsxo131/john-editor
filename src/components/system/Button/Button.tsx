@@ -1,8 +1,20 @@
-import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> &
-  Required<PropsWithChildren<{}>>;
+import { button } from './Button.css';
 
-export default function Button({ children, ...props }: Props) {
-  return <button {...props}>{children}</button>;
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: ReactNode;
+  variants?: 'primary' | 'ghost';
+};
+
+export default function Button({
+  children,
+  variants = 'primary',
+  ...props
+}: Props) {
+  return (
+    <button className={button[variants]} {...props}>
+      {children}
+    </button>
+  );
 }
