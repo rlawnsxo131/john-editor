@@ -41,3 +41,15 @@ export const aside = style({
   paddingLeft: '1rem',
   paddingRight: '1rem',
 });
+
+export const asideLink = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '0.25rem',
+  selectors: {
+    '& + &': {
+      marginTop: '0.5rem',
+    },
+  },
+});

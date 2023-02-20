@@ -45,6 +45,7 @@ export default class Monaco {
 
       return (this.#instance = new this(div, theme));
     }
+
     return this.#instance;
   }
 

@@ -3,7 +3,7 @@ import { globalStyle, style } from '@vanilla-extract/css';
 export const block = style({
   display: 'flex',
   justifyContent: 'center',
-  paddingTop: '0.5rem',
+  alignItems: 'center',
   paddingBottom: '0.5rem',
 });
 

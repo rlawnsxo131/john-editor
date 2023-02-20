@@ -6,7 +6,8 @@ export function set(theme: Theme) {
 }
 
 export function get(): Theme {
-  const theme = localStorage.getItem('theme') as Theme | undefined;
+  let theme = localStorage.getItem('theme') as Theme | undefined;
   if (theme) return theme;
-  return 'light';
+  theme ??= document.documentElement.dataset.theme as Theme | undefined;
+  return theme ?? 'light';
 }

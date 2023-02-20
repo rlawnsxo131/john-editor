@@ -2,9 +2,9 @@ import { globalStyle, style } from '@vanilla-extract/css';
 
 import { themeDatasetSelector } from '@/styles/selectors';
 
-export const parentClass = style({});
+export const img = style({});
 
-globalStyle(`${themeDatasetSelector.dark} ${parentClass}`, {
+globalStyle(`${themeDatasetSelector.dark} ${img}`, {
   filter:
     'invert(86%) sepia(7%) saturate(0%) hue-rotate(160deg) brightness(108%) contrast(98%)',
 });

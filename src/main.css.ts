@@ -15,19 +15,18 @@ globalStyle('html, body, #root', {
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   WebkitTextSizeAdjust: '100%',
-  '@media': {
-    '(prefers-color-scheme: dark)': {
-      background: vars.color.gray2,
-    },
-  },
 });
 
 globalStyle('html, body, #root *', {
   boxSizing: 'inherit',
 });
 
-globalStyle(themeDatasetSelector.dark, {
+globalStyle(`:root${themeDatasetSelector.dark} :where(body, #root)`, {
   background: vars.color.gray2,
+});
+
+globalStyle(`:root${themeDatasetSelector.light} :where(body, #root)`, {
+  background: vars.color.white,
 });
 
 globalStyle('h1, h2, h3, h4, h5, h6', {

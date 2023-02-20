@@ -22,19 +22,23 @@ const staticColorVar = {
 } as const;
 
 const lightColors = {
-  ...staticColorVar,
   ...cyan,
   ...gray,
   ...red,
+  ...staticColorVar,
 } as const;
 
-const colorVar = (Object.keys(lightColors) as ColorKey[]).reduce<ColorVar>(
-  (acc, key) => {
-    acc[key] = key;
-    return acc;
-  },
-  {} as ColorVar,
-);
+const darkColors = {
+  ...cyanDark,
+  ...grayDark,
+  ...redDark,
+  ...staticColorVar,
+} as const;
+
+const colorVar = (Object.keys(lightColors) as ColorKey[]).reduce((acc, key) => {
+  acc[key] = key;
+  return acc;
+}, {} as ColorVar);
 
 export const vars = createGlobalThemeContract(
   {
@@ -53,9 +57,6 @@ createGlobalTheme(themeDatasetSelector.light, vars, {
 
 createGlobalTheme(themeDatasetSelector.dark, vars, {
   color: {
-    ...staticColorVar,
-    ...cyanDark,
-    ...grayDark,
-    ...redDark,
+    ...darkColors,
   },
 });
