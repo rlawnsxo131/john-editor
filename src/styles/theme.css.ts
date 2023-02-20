@@ -17,8 +17,11 @@ type ColorVar = Record<ColorKey, ColorKey>;
 const staticColorVar = {
   white: '#FFF',
 
-  'btn-primary': 'hsl(191deg 91% 37%)',
-  'btn-primary-hover': 'hsl(190, 95.0%, 39.0%)',
+  'bg-aside': 'hsl(0deg 0% 16%)',
+  'bg-header': 'hsl(0deg 0% 16%)',
+
+  'bg-btn-primary': 'hsl(191deg 91% 37%)',
+  'bg-btn-primary-hover': 'hsl(190, 95.0%, 39.0%)',
 } as const;
 
 const lightColors = {
@@ -35,7 +38,8 @@ const darkColors = {
   ...staticColorVar,
 } as const;
 
-const colorVar = (Object.keys(lightColors) as ColorKey[]).reduce((acc, key) => {
+const keys = Object.keys(lightColors) as ColorKey[];
+const colorVar = keys.reduce((acc, key) => {
   acc[key] = key;
   return acc;
 }, {} as ColorVar);

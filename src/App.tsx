@@ -14,6 +14,7 @@ const router = createBrowserRouter([
     element: (
       <AppLayout>
         <AppLayout.Header>
+          <EditorFormatButtons />
           <ThemeButton />
         </AppLayout.Header>
         <AppLayout.Body>
@@ -25,11 +26,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: (
-          <Editor>
-            <EditorFormatButtons />
-          </Editor>
-        ),
+        element: <Editor />,
       },
       { path: '/info', element: <div>info</div> },
     ],

@@ -11,7 +11,7 @@ export const base = style({
   borderRadius: '4px',
   lineHeight: 'normal',
   cursor: 'pointer',
-  padding: '0.25rem 1rem',
+  padding: '0.4rem 1rem',
   fontSize: '1rem',
 });
 
@@ -20,14 +20,14 @@ export const button = styleVariants({
     base,
     {
       color: 'white',
-      background: vars.color['btn-primary'],
-      border: `1px solid ${vars.color['btn-primary']}`,
-      outlineColor: vars.color['btn-primary'],
+      background: vars.color['bg-btn-primary'],
+      border: `1px solid ${vars.color['bg-btn-primary']}`,
+      outlineColor: vars.color['bg-btn-primary'],
       selectors: {
         '&:hover': {
-          background: vars.color['btn-primary-hover'],
-          border: `1px solid ${vars.color['btn-primary-hover']}`,
-          outlineColor: vars.color['btn-primary-hover'],
+          background: vars.color['bg-btn-primary-hover'],
+          border: `1px solid ${vars.color['bg-btn-primary-hover']}`,
+          outlineColor: vars.color['bg-btn-primary-hover'],
         },
       },
     },

@@ -8,4 +8,5 @@ export const block = style({
 
 export const editor = style({
   flex: 1,
+  paddingTop: '1rem',
 });

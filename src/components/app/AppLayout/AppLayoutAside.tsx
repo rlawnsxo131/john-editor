@@ -2,18 +2,17 @@ import { Link } from 'react-router-dom';
 
 import insightsIcon from '@/assets/insights.svg';
 import boltIcon from '@/assets/offline_bolt.svg';
-import SVGIcon from '@/components/system/SVGIcon';
 
-import { aside, asideLink } from './AppLayout.css';
+import { aside, asideLink, asideLinkIcon } from './AppLayoutAside.css';
 
 export default function AppLayoutAside() {
   return (
     <aside className={aside}>
       <Link className={asideLink} to="/">
-        <SVGIcon src={boltIcon} />
+        <img className={asideLinkIcon} src={boltIcon} alt="home" />
       </Link>
       <Link className={asideLink} to="/info">
-        <SVGIcon src={insightsIcon} />
+        <img className={asideLinkIcon} src={insightsIcon} alt="info" />
       </Link>
     </aside>
   );

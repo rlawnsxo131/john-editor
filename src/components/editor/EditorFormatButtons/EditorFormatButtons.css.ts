@@ -4,7 +4,6 @@ export const block = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  paddingBottom: '0.5rem',
 });
 
 globalStyle(`${block} button + button`, {

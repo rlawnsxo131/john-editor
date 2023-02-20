@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react';
+import { Link } from 'react-router-dom';
 
 import { header, headerContent, headerTitleLogo } from './AppLayout.css';
 
@@ -8,7 +9,9 @@ export default function AppLayoutHeader({
   return (
     <header className={header}>
       <div className={headerContent}>
-        <h1 className={headerTitleLogo}>John Editor</h1>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <h1 className={headerTitleLogo}>John Editor</h1>
+        </Link>
         {children}
       </div>
     </header>

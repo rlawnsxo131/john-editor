@@ -1,13 +1,16 @@
 import { style } from '@vanilla-extract/css';
 
+import { vars } from '@/styles/theme.css';
+
 export const header = style({
   position: 'fixed',
   top: 0,
   left: 0,
   width: '100%',
   height: '4rem',
+  paddingLeft: '4rem',
   display: 'flex',
-  alignItems: 'center',
+  background: vars.color['bg-header'],
 });
 
 export const headerContent = style({
@@ -15,11 +18,11 @@ export const headerContent = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  paddingLeft: '1rem',
   paddingRight: '1rem',
 });
 
 export const headerTitleLogo = style({
+  color: vars.color.white,
   fontSize: '1.5rem',
   fontWeight: 500,
 });
@@ -33,23 +36,4 @@ export const body = style({
 export const main = style({
   flex: 1,
   display: 'flex',
-});
-
-export const aside = style({
-  display: 'flex',
-  flexDirection: 'column',
-  paddingLeft: '1rem',
-  paddingRight: '1rem',
-});
-
-export const asideLink = style({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: '0.25rem',
-  selectors: {
-    '& + &': {
-      marginTop: '0.5rem',
-    },
-  },
 });
