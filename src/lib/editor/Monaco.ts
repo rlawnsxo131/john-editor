@@ -14,11 +14,19 @@ export default class Monaco {
     formatDocument: 'editor.action.formatDocument',
   };
 
+  readonly #themeMap = {
+    light: 'vs',
+    dark: 'vs-dark',
+  };
+
   #editor: editor.IStandaloneDiffEditor;
 
-  private constructor(div: HTMLDivElement, theme?: Theme) {
+  private constructor(div: HTMLDivElement, theme: Theme) {
+    editor.onDidCreateDiffEditor((_: editor.IDiffEditor) => {
+      console.log('create diff editor');
+    });
     this.#editor = editor.createDiffEditor(div, {
-      theme: this.#getTheme(theme),
+      theme: this.#themeMap[theme],
       autoIndent: 'full',
       formatOnType: true,
       originalEditable: true,
@@ -27,16 +35,8 @@ export default class Monaco {
     });
   }
 
-  #getTheme(theme?: Theme) {
-    return theme === 'dark' ? 'vs-dark' : 'vs';
-  }
-
-  public static getInstance(div?: HTMLDivElement, theme?: Theme) {
+  static getInstance(div?: HTMLDivElement, theme?: Theme) {
     if (!this.#instance) {
-      editor.onDidCreateDiffEditor((_: editor.IDiffEditor) => {
-        console.log('create diff editor');
-      });
-
       if (!div) {
         throw new Error('Manaco initialization requires div');
       } else if (!theme) {
@@ -49,11 +49,11 @@ export default class Monaco {
     return this.#instance;
   }
 
-  public static cleanUp() {
+  static cleanUp() {
     this.#instance = null;
   }
 
-  public setModel(models: [MonacoModel, MonacoModel]) {
+  setModel(models: [MonacoModel, MonacoModel]) {
     const [original, modified] = models.map((model) =>
       editor.createModel(model.value, model.language),
     );
@@ -64,18 +64,18 @@ export default class Monaco {
     });
   }
 
-  public setTheme(theme: Theme) {
-    return editor.setTheme(this.#getTheme(theme));
+  setTheme(theme: Theme) {
+    return editor.setTheme(this.#themeMap[theme]);
   }
 
-  public formatOrigin() {
+  formatOrigin() {
     return this.#editor
       .getOriginalEditor()
       .getAction(this.#actions.formatDocument)
       ?.run();
   }
 
-  public formatModify() {
+  formatModify() {
     return this.#editor
       .getModifiedEditor()
       .getAction(this.#actions.formatDocument)
