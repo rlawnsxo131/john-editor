@@ -6,6 +6,7 @@ import { block, editor } from './Editor.css';
 export default function Editor() {
   const containerRef = useRefEffect((div: HTMLDivElement) => {
     editorService.initializeEditor(div, themeService.get());
+    return () => editorService.cleanUp();
   }, []);
 
   return (

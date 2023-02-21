@@ -8,7 +8,7 @@ type MonacoModel = {
 };
 
 export default class Monaco {
-  static #instance: Monaco;
+  static #instance: Monaco | null;
 
   readonly #actions = {
     formatDocument: 'editor.action.formatDocument',
@@ -47,6 +47,10 @@ export default class Monaco {
     }
 
     return this.#instance;
+  }
+
+  public static cleanUp() {
+    this.#instance = null;
   }
 
   public setModel(models: [MonacoModel, MonacoModel]) {

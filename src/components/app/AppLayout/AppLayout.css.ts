@@ -37,3 +37,40 @@ export const main = style({
   flex: 1,
   display: 'flex',
 });
+
+export const aside = style({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '4rem',
+  background: vars.color['bg-aside'],
+});
+
+export const asideLink = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '0.25rem',
+  textDecoration: 'none',
+  selectors: {
+    '& + &': {
+      marginTop: '0.5rem',
+    },
+  },
+});
+
+export const asideLinkIcon = style({
+  selectors: {
+    '&': {
+      filter:
+        'invert(76%) sepia(7%) saturate(0%) hue-rotate(160deg) brightness(64%) contrast(100%)',
+    },
+    '&:hover': {
+      filter:
+        'invert(86%) sepia(7%) saturate(0%) hue-rotate(160deg) brightness(100%) contrast(98%)',
+    },
+    '.active &': {
+      filter:
+        'invert(86%) sepia(7%) saturate(0%) hue-rotate(160deg) brightness(100%) contrast(98%)',
+    },
+  },
+});

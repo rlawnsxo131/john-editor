@@ -18,6 +18,10 @@ export function initializeEditor(div: HTMLDivElement, theme: Theme) {
   return editor;
 }
 
+export function cleanUp() {
+  return Monaco.cleanUp();
+}
+
 export function setTheme(theme: Theme) {
   return Monaco.getInstance().setTheme(theme);
 }
