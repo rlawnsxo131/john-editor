@@ -4,7 +4,7 @@ import {
   createGlobalThemeContract,
 } from '@vanilla-extract/css';
 
-import { themeDatasetSelector } from './selectors';
+import { themeDatasetSelector } from './selector';
 
 type ColorKey =
   | keyof typeof cyan

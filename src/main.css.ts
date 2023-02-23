@@ -1,6 +1,6 @@
 import { globalStyle } from '@vanilla-extract/css';
 
-import { themeDatasetSelector } from './styles/selectors';
+import { themeDatasetSelector } from './styles/selector';
 import { vars } from './styles/theme.css';
 
 globalStyle('html, body, #root', {
