@@ -22,6 +22,8 @@ const staticColorVar = {
 
   'bg-btn-primary': 'hsl(191deg 91% 37%)',
   'bg-btn-primary-hover': 'hsl(190, 95.0%, 39.0%)',
+
+  'bg-select': 'hsl(0deg 0% 16%)',
 } as const;
 
 const lightColors = {

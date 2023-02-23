@@ -7,7 +7,7 @@ export const header = style({
   top: 0,
   left: 0,
   width: '100%',
-  height: '4rem',
+  height: '3rem',
   paddingLeft: '4rem',
   display: 'flex',
   background: vars.color['bg-header'],
@@ -29,7 +29,7 @@ export const headerTitleLogo = style({
 
 export const body = style({
   display: 'flex',
-  paddingTop: '4rem',
+  paddingTop: '3rem',
   height: '100%',
 });
 
@@ -59,11 +59,9 @@ export const asideLink = style({
 });
 
 export const asideLinkIcon = style({
+  filter:
+    'invert(76%) sepia(7%) saturate(0%) hue-rotate(160deg) brightness(64%) contrast(100%)',
   selectors: {
-    '&': {
-      filter:
-        'invert(76%) sepia(7%) saturate(0%) hue-rotate(160deg) brightness(64%) contrast(100%)',
-    },
     '&:hover': {
       filter:
         'invert(86%) sepia(7%) saturate(0%) hue-rotate(160deg) brightness(100%) contrast(98%)',

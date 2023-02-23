@@ -7,6 +7,9 @@ type MonacoModel = {
   language: SupportLanguage;
 };
 
+/**
+ * get all actions: editor.getSupportedActions()
+ */
 export default class Monaco {
   static #instance: Monaco | null;
 

@@ -7,5 +7,5 @@ export const block = style({
 });
 
 globalStyle(`${block} button + button`, {
-  marginLeft: '2rem',
+  marginLeft: '1rem',
 });
