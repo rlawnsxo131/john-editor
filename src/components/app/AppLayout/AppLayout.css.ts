@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 import { vars } from '@/styles/theme.css';
+import zIndexes from '@/styles/zIndexes';
 
 export const header = style({
   position: 'fixed',
@@ -11,6 +12,7 @@ export const header = style({
   paddingLeft: '4rem',
   display: 'flex',
   background: vars.color['bg-header'],
+  zIndex: zIndexes.header,
 });
 
 export const headerContent = style({

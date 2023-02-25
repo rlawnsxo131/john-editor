@@ -5,6 +5,28 @@ export const anchorBaseStyle = style({
   textDecoration: 'none',
 });
 
+export const buttonBaseStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: '4px',
+  lineHeight: 'normal',
+  cursor: 'pointer',
+  padding: '0.4rem 1rem',
+  fontSize: '1rem',
+});
+
+export const ulBaseStyle = style({
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  position: 'absolute',
+  top: '3rem',
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+});
+
 export const visullayHiddenBaseStyle = style({
   clip: 'rect(0 0 0 0)',
   clipPath: 'inset(50%)',

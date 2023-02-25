@@ -1,23 +1,11 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { styleVariants } from '@vanilla-extract/css';
 
+import { buttonBaseStyle } from '@/styles/base.css';
 import { vars } from '@/styles/theme.css';
-
-export const base = style({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  border: 'none',
-  outline: 'none',
-  borderRadius: '4px',
-  lineHeight: 'normal',
-  cursor: 'pointer',
-  padding: '0.4rem 1rem',
-  fontSize: '1rem',
-});
 
 export const button = styleVariants({
   primary: [
-    base,
+    buttonBaseStyle,
     {
       color: 'white',
       background: vars.color['bg-btn-primary'],
@@ -32,5 +20,5 @@ export const button = styleVariants({
       },
     },
   ],
-  ghost: [base, {}],
+  ghost: [buttonBaseStyle, {}],
 });

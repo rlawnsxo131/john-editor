@@ -1,14 +1,10 @@
-import { visullayHiddenBaseStyle } from '@/styles/base.css';
+import SelectContent from './SelectContent';
+import SelectMain from './SelectMain';
+import SelectTrigger from './SelectTrigger';
 
-import { block } from './Select.css';
+const Select = Object.assign(SelectMain, {
+  Trigger: SelectTrigger,
+  Content: SelectContent,
+});
 
-export default function Select() {
-  return (
-    <div className={block}>
-      <button>click</button>``
-      <select className={visullayHiddenBaseStyle}>
-        <option>json</option>
-      </select>
-    </div>
-  );
-}
+export default Select;
