@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AppLayout from './components/app/AppLayout';
 import Editor from './components/editor/Editor';
 import EditorFormatButtons from './components/editor/EditorFormatButtons';
-import EditorItemBox from './components/editor/EditorItemBox';
 import EditorLanguageSelect from './components/editor/EditorLanguageSelect';
+import EditorMenuBox from './components/editor/EditorMenuBox';
 import ThemeButton from './components/theme/ThemeButton';
 
 /**
@@ -16,10 +16,10 @@ const router = createBrowserRouter([
     element: (
       <AppLayout>
         <AppLayout.Header>
-          <EditorItemBox>
+          <EditorMenuBox>
             <EditorLanguageSelect />
             <EditorFormatButtons />
-          </EditorItemBox>
+          </EditorMenuBox>
           <ThemeButton />
         </AppLayout.Header>
         <AppLayout.Body>
@@ -38,8 +38,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
+export default function App() {
   return <RouterProvider router={router} />;
 }
-
-export default App;

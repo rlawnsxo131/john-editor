@@ -1,6 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
 
+import { anchorBaseStyle } from '@/styles/base.css';
+
 import { header, headerContent, headerTitleLogo } from './AppLayout.css';
 
 export default function AppLayoutHeader({
@@ -9,7 +11,7 @@ export default function AppLayoutHeader({
   return (
     <header className={header}>
       <div className={headerContent}>
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <Link className={anchorBaseStyle} to="/">
           <h1 className={headerTitleLogo}>John Editor</h1>
         </Link>
         {children}

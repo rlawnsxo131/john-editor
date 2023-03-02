@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-type Callback = (...args: any[]) => any;
-
-export default function usePreservedCallback(callback: Callback): Callback {
+export default function usePreservedCallback<
+  Callback extends (...args: any[]) => any,
+>(callback: Callback): Callback {
   const callbackRef = useRef<Callback>(callback);
 
   useEffect(() => {
@@ -14,5 +14,5 @@ export default function usePreservedCallback(callback: Callback): Callback {
       return callbackRef.current(...args);
     },
     [callbackRef],
-  );
+  ) as Callback;
 }

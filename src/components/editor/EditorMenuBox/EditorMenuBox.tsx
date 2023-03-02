@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from 'react';
 
-import { block } from './EditorItemBox.css';
+import { block } from './EditorMenuBox.css';
 
-export default function EditorItemBox({
+export default function EditorMenuBox({
   children,
 }: Required<PropsWithChildren>) {
   return <div className={block}>{children}</div>;
