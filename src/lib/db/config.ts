@@ -1,15 +1,15 @@
-import type { IndexedDBStore, SchemaNameObj } from './types';
+import type { IndexedDBStore, SchemaName } from './types';
 
-export const IndexedDBConfig = {
+export const INDEXED_DB_CONFIG = {
   name: 'john-editor',
   version: 1,
 } as const;
 
-export const SchemaNameObject: SchemaNameObj = {
+export const SCHEMA_NAME_OBJECT: SchemaName = {
   support_language: 'support_language',
 };
 
-export const IndexedDBSchemaConfig: Readonly<IndexedDBStore[]> = [
+export const INDEXED_DB_SCHEMA_CONFIG: Readonly<IndexedDBStore[]> = [
   {
     name: 'support_language',
     keyConfig: {

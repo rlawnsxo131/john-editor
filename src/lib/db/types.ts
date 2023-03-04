@@ -1,6 +1,6 @@
 export type Schema = 'support_language';
 
-export type SchemaNameObj = Record<Schema, Schema>;
+export type SchemaName = Record<Schema, Schema>;
 
 export type IndexedDBStore = Readonly<{
   name: Schema;

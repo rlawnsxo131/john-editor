@@ -1,9 +1,9 @@
 import { SUPPORT_LANGUAGES, SUPPORT_LAUNGUAGE_INITIAL_VALUE } from '@/models';
 
 import {
-  IndexedDBConfig,
-  IndexedDBSchemaConfig,
-  SchemaNameObject,
+  INDEXED_DB_CONFIG,
+  INDEXED_DB_SCHEMA_CONFIG,
+  SCHEMA_NAME_OBJECT,
 } from './config';
 
 type UpgradeCallback = (
@@ -19,8 +19,8 @@ export function openDatabase(upgradeCallback?: UpgradeCallback) {
   return new Promise<IDBDatabase>((resolve, reject) => {
     if (!indexedDB) reject(new Error('indexedDB is not supported'));
     const request = indexedDB.open(
-      IndexedDBConfig.name,
-      IndexedDBConfig.version,
+      INDEXED_DB_CONFIG.name,
+      INDEXED_DB_CONFIG.version,
     );
 
     request.onerror = () => {
@@ -53,7 +53,7 @@ export function openDatabase(upgradeCallback?: UpgradeCallback) {
 export function initializeDatabase() {
   return openDatabase((event, db) => {
     if (event.oldVersion === 0) {
-      const names = IndexedDBSchemaConfig.reduce<string[]>((acc, config) => {
+      const names = INDEXED_DB_SCHEMA_CONFIG.reduce<string[]>((acc, config) => {
         const store = db.createObjectStore(config.name, {
           ...config.keyConfig,
         });
@@ -69,8 +69,11 @@ export function initializeDatabase() {
 export function addInitializeLanguages() {
   return new Promise<IDBValidKey[]>((resolve, reject) => {
     openDatabase().then((db) => {
-      const tx = db.transaction(SchemaNameObject.support_language, 'readwrite');
-      const store = tx.objectStore(SchemaNameObject.support_language);
+      const tx = db.transaction(
+        SCHEMA_NAME_OBJECT.support_language,
+        'readwrite',
+      );
+      const store = tx.objectStore(SCHEMA_NAME_OBJECT.support_language);
       const results: IDBValidKey[] = [];
 
       SUPPORT_LANGUAGES.forEach((language) => {

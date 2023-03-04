@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
@@ -43,4 +45,13 @@ export default defineConfig({
       // globalAPI: false,
     }),
   ],
+  test: {
+    // globals: true,
+    // environment: 'jsdom',
+    // setupFiles: './src/test/setup.ts',
+    // css: true,
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.ts',
+  },
 });
