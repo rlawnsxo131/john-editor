@@ -10,6 +10,9 @@ export function isSupportLanguage(
   return SUPPORT_LANGUAGES.includes(value);
 }
 
+/**
+ * @TODO 최근 다룬 언어 저장하는 기능도 추가하기
+ */
 export function getRecentLanguage() {
   const storageValue = safeLocalStorage.get(LANGUAGE_KEY) as SupportLanguage;
   return storageValue ?? (LANGUAGE_VALUE.json as SupportLanguage);

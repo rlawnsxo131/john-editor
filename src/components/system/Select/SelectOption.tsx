@@ -1,9 +1,15 @@
-import type { PropsWithChildren } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import { li } from './Select.css';
 
-export default function SelectOption({
-  children,
-}: Required<PropsWithChildren>) {
-  return <li className={li}>{children}</li>;
+type Props = Omit<HTMLAttributes<HTMLLIElement>, 'className'> & {
+  children: ReactNode;
+};
+
+export default function SelectOption({ children, ...props }: Props) {
+  return (
+    <li className={li} {...props}>
+      {children}
+    </li>
+  );
 }

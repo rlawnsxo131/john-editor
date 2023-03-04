@@ -1,16 +1,26 @@
-import type { PropsWithChildren } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 
+import type { HtmlContainerElement } from '@/@types';
 import { visullayHiddenBaseStyle } from '@/styles/base.css';
 
 import { block } from './Select.css';
 
-export default function SelectMain({ children }: Required<PropsWithChildren>) {
-  return (
-    <div className={block}>
-      {children}
-      <select className={visullayHiddenBaseStyle}>
-        <option>json</option>
-      </select>
-    </div>
-  );
-}
+type Props = Omit<HTMLAttributes<HTMLDivElement>, 'className'> & {
+  children: ReactNode;
+};
+
+const SelectMain = forwardRef<HtmlContainerElement, Props>(
+  ({ children, ...props }, ref) => {
+    return (
+      <div className={block} ref={ref} {...props}>
+        {children}
+        <select className={visullayHiddenBaseStyle}>
+          <option>json</option>
+        </select>
+      </div>
+    );
+  },
+);
+
+export default SelectMain;
