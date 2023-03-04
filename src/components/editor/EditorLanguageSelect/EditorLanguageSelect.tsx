@@ -16,13 +16,15 @@ export default function EditorLanguageSelect() {
 
   const handleLanguage = (e: MouseEvent<HTMLLIElement>) => {
     const language = e.currentTarget.dataset.language as SupportLanguage;
+
     if (!languageService.isSupportLanguage(language)) return;
+
     setLanguage(language);
     setVisible(false);
     languageService
-      .getLanguageValueByKey(language)
+      .getByKey(language)
       .then((data) => editorService.setModel(data.language, data.value))
-      .catch((reason) => console.log(reason));
+      .catch((reason) => console.error(reason));
   };
 
   const ref = useRefEffect(

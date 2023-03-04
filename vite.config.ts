@@ -7,10 +7,28 @@ import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import monacoEditorPlugin from 'vite-plugin-monaco-editor';
 
+import { dependencies } from './package.json';
+
+function renderChunks(deps: Record<string, string>) {
+  const chunks = {};
+  Object.keys(deps).forEach((key) => {
+    if (['react', 'react-router-dom', 'react-dom'].includes(key)) return;
+    chunks[key] = [key];
+  });
+  return chunks;
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    rollupOptions: {},
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-router-dom', 'react-dom'],
+          ...renderChunks(dependencies),
+        },
+      },
+    },
     reportCompressedSize: true,
   },
   resolve: {

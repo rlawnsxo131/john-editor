@@ -18,6 +18,6 @@ export function getRecentLanguage() {
   return storageValue ?? (LANGUAGE_VALUE.json as SupportLanguage);
 }
 
-export function getLanguageValueByKey(key: SupportLanguage) {
+export function getByKey(key: SupportLanguage) {
   return repository.getByKey<LanguageRecord>('support_language', key);
 }

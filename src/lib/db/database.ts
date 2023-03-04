@@ -37,9 +37,8 @@ export function openDatabase(upgradeCallback?: UpgradeCallback) {
       resolve(db);
     };
 
-    request.onblocked = () => {
+    request.onblocked = () =>
       reject(new Error(`indexedDB trigger onblocked event: ${request.error}`));
-    };
 
     if (typeof upgradeCallback === 'function') {
       request.onupgradeneeded = (event) => {
