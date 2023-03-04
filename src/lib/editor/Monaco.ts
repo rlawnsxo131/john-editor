@@ -1,6 +1,6 @@
 import { editor } from 'monaco-editor';
 
-import type { SupportLanguage, Theme } from '@/@types';
+import type { SupportLanguage, Theme } from '@/models';
 
 type MonacoModel = {
   value: string;

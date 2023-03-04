@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import Select from '@/components/system/Select';
 import SelectContent from '@/components/system/Select/SelectContent';
-import type { SupportLanguage } from '@/models/language';
-import { SUPPORT_LANGUAGES } from '@/models/language';
+import type { SupportLanguage } from '@/models';
+import { SUPPORT_LANGUAGES } from '@/models';
 
 export default function EditorLanguageSelect() {
   const [visible, setVisible] = useState(false);

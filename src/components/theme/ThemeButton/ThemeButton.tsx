@@ -3,7 +3,7 @@ import { useState } from 'react';
 import darkModeIcon from '@/assets/dark_mode.svg';
 import lightModeIcon from '@/assets/light_mode.svg';
 import SVGIcon from '@/components/system/SVGIcon';
-import type { Theme } from '@/models/theme';
+import type { Theme } from '@/models';
 import { editorService, themeService } from '@/services';
 
 import { button } from './ThemeButton.css';

@@ -1,5 +1,5 @@
-import type { SupportLanguage } from '@/models/language';
-import { SUPPORT_LANGUAGES } from '@/models/language';
+import type { SupportLanguage } from '@/models';
+import { SUPPORT_LANGUAGES } from '@/models';
 
 export function isSupportLanguage(
   value: SupportLanguage,
