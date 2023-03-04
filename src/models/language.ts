@@ -16,7 +16,7 @@ export const SUPPORT_LANGUAGES: readonly SupportLanguage[] = [
   'typescript',
   'graphql',
   'html',
-] as const;
+];
 
 export const SUPPORT_LAUNGUAGE_INITIAL_VALUE: Record<SupportLanguage, string> =
   {
@@ -26,7 +26,7 @@ export const SUPPORT_LAUNGUAGE_INITIAL_VALUE: Record<SupportLanguage, string> =
       "type HelloWorld = Record<string, string>;\nconst helloWorld: HelloWorld = { hello: 'world'};",
     graphql: 'query {\nhello {\n id\n name\n}\n }',
     html: `<div>hello world</div>`,
-  };
+  } as const;
 
 type LanguageValue = Record<SupportLanguage, SupportLanguage>;
 
