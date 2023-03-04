@@ -54,11 +54,17 @@ export default class Monaco {
   }
 
   static cleanupInstance() {
-    this.#instance = null;
+    return new Promise<boolean>((resolve) => {
+      this.#instance = null;
+      resolve(true);
+    });
   }
 
   cleanUpEditor() {
-    this.#editor = null;
+    return new Promise<boolean>((resolve) => {
+      this.#editor = null;
+      resolve(true);
+    });
   }
 
   setModel(models: [MonacoModel, MonacoModel]) {

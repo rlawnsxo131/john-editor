@@ -6,7 +6,7 @@ export function initializeEditor(
   container: HtmlContainerElement,
   theme: Theme,
 ) {
-  return new Promise((resolve) => {
+  return new Promise<Monaco>((resolve) => {
     resolve(Monaco.getInstance(container, theme));
   });
 }
@@ -21,8 +21,9 @@ export function setModel(language: SupportLanguage, value: string) {
 }
 
 export function cleanUp() {
-  Monaco.getInstance().cleanUpEditor();
-  Monaco.cleanupInstance();
+  return Monaco.getInstance()
+    .cleanUpEditor()
+    .then(() => Monaco.cleanupInstance());
 }
 
 export function setTheme(theme: Theme) {

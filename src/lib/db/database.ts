@@ -67,7 +67,7 @@ export function initializeDatabase() {
 }
 
 export function addInitializeLanguages() {
-  return new Promise((resolve, reject) => {
+  return new Promise<IDBValidKey[]>((resolve, reject) => {
     openDatabase().then((db) => {
       const tx = db.transaction(SchemaNameObject.support_language, 'readwrite');
       const store = tx.objectStore(SchemaNameObject.support_language);
