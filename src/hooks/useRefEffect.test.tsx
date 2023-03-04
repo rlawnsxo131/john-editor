@@ -4,16 +4,16 @@ import { describe, expect, it } from 'vitest';
 
 import useRefEffect from './useRefEffect';
 
-const TestComponent = ({
+function TestComponent({
   onRef,
   deps,
 }: {
   onRef: (element: HTMLDivElement) => void;
   deps: DependencyList;
-}) => {
+}) {
   const ref = useRefEffect(onRef, deps);
   return <div ref={ref} />;
-};
+}
 
 describe('useRefEffect 는', () => {
   it('마운트 시에 불린다.', () => {
