@@ -1,7 +1,8 @@
 import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 import { describe, expect, it } from 'vitest';
+
 import Button from './Button';
 
 function renderButton(props?: Partial<ComponentProps<typeof Button>>) {

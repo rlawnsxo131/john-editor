@@ -8,7 +8,7 @@
   },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+      "@typescript-eslint/parser": ["*.ts", "*.tsx"]
     }
   },
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
