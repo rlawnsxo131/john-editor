@@ -12,8 +12,9 @@ export const buttonBaseStyle = style({
   borderRadius: '4px',
   lineHeight: 'normal',
   cursor: 'pointer',
-  padding: '0.4rem 1rem',
+  padding: '0.25rem 0.725rem',
   fontSize: '1rem',
+  fontWeight: 500,
 });
 
 export const ulBaseStyle = style({
