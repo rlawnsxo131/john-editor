@@ -19,14 +19,10 @@ export default function EditorFormatButtons() {
   };
 
   const formatLeft = () =>
-    editorService.formatOrigin()?.catch((reason) => {
-      console.error(reason);
-    });
+    editorService.formatOrigin()?.catch((reason) => console.error(reason));
 
   const formatRight = () =>
-    editorService.formatModify()?.catch((reason) => {
-      console.error(reason);
-    });
+    editorService.formatModify()?.catch((reason) => console.error(reason));
 
   return (
     <div className={block}>
