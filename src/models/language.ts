@@ -28,11 +28,13 @@ export const SUPPORT_LAUNGUAGE_INITIAL_VALUE: Record<SupportLanguage, string> =
     html: `<div>hello world</div>`,
   };
 
-export const LANGUAGE_KEY = 'language';
+type LanguageValue = Record<SupportLanguage, SupportLanguage>;
 
-export const LANGUAGE_VALUE = SUPPORT_LANGUAGES.reduce<
-  Record<SupportLanguage, SupportLanguage>
->((acc, language) => {
-  acc[language] = language;
-  return acc;
-}, {} as Readonly<Record<SupportLanguage, SupportLanguage>>);
+export const LANGUAGE_KEY = 'language';
+export const LANGUAGE_VALUE = SUPPORT_LANGUAGES.reduce<LanguageValue>(
+  (acc, language) => {
+    acc[language] = language;
+    return acc;
+  },
+  {} as Readonly<LanguageValue>,
+);
