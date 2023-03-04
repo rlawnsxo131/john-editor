@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 import {
-  addInitializeLanguages,
+  initializeSupportLanguageRecords,
   initializeDatabase,
   repository,
 } from './lib/db';
@@ -15,7 +15,7 @@ import {
  * @TODO temp code
  */
 initializeDatabase()
-  .then((_) => addInitializeLanguages())
+  .then((_) => initializeSupportLanguageRecords())
   .then((_) => repository.getByKey('support_language', 'json'))
   .then((data) => console.log(data))
   .catch((reason) => console.error(reason));

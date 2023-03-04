@@ -66,7 +66,7 @@ export function initializeDatabase() {
   }).then((db) => db.close());
 }
 
-export function addInitializeLanguages() {
+export function initializeSupportLanguageRecords() {
   return new Promise<IDBValidKey[]>((resolve, reject) => {
     openDatabase().then((db) => {
       const tx = db.transaction(

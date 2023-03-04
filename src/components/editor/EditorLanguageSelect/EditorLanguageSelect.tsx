@@ -11,6 +11,8 @@ export default function EditorLanguageSelect() {
 
   const handleVisible = () => setVisible((visible) => !visible);
 
+  const handleLanguage = () => {};
+
   return (
     <Select>
       <Select.Trigger onClick={handleVisible}>{language}</Select.Trigger>
