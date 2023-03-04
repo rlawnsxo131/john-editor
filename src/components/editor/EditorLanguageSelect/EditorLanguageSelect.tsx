@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-import type { SupportLanguage } from '@/@types';
 import Select from '@/components/system/Select';
 import SelectContent from '@/components/system/Select/SelectContent';
+import type { SupportLanguage } from '@/models/language';
+import { SUPPORT_LANGUAGES } from '@/models/language';
 
 export default function EditorLanguageSelect() {
   const [visible, setVisible] = useState(false);
@@ -15,13 +16,9 @@ export default function EditorLanguageSelect() {
       <Select.Trigger onClick={handleVisible}>{language}</Select.Trigger>
       {visible && (
         <SelectContent>
-          <li>asdf</li>
-          <li>asdf</li>
-          <li>asdf</li>
-          <li>asdf</li>
-          <li>asdf</li>
-          <li>asdf</li>
-          <li>asdf</li>
+          {SUPPORT_LANGUAGES.map((language) => (
+            <Select.Option key={language}>{language}</Select.Option>
+          ))}
         </SelectContent>
       )}
     </Select>

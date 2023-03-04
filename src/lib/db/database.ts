@@ -1,4 +1,13 @@
-import { IndexedDBConfig, IndexedDBSchemaConfig } from './config';
+import {
+  SUPPORT_LANGUAGES,
+  SUPPORT_LAUNGUAGE_INITIAL_VALUE,
+} from '@/models/language';
+
+import {
+  IndexedDBConfig,
+  IndexedDBSchemaConfig,
+  SchemaNameObject,
+} from './config';
 
 type UpgradeCallback = (
   event: IDBVersionChangeEvent,
@@ -44,17 +53,40 @@ export function openDatabase(upgradeCallback?: UpgradeCallback) {
   });
 }
 
-export async function initializeDatabase() {
+export function initializeDatabase() {
   return openDatabase((event, db) => {
     if (event.oldVersion === 0) {
       const names = IndexedDBSchemaConfig.reduce<string[]>((acc, config) => {
-        const { name } = db.createObjectStore(config.name, {
+        const store = db.createObjectStore(config.name, {
           ...config.keyConfig,
         });
-        acc.push(name);
+        store.createIndex(config.indexConfig.name, config.indexConfig.column);
+        acc.push(store.name);
         return acc;
       }, []);
       console.log('create tables:', names.join());
     }
   }).then((db) => db.close());
+}
+
+export function addInitializeLanguages() {
+  return new Promise((resolve, reject) => {
+    openDatabase().then((db) => {
+      const tx = db.transaction(SchemaNameObject.support_language, 'readwrite');
+      const store = tx.objectStore(SchemaNameObject.support_language);
+      const results: IDBValidKey[] = [];
+
+      SUPPORT_LANGUAGES.forEach((language) => {
+        const request = store.put({
+          language,
+          value: SUPPORT_LAUNGUAGE_INITIAL_VALUE[language],
+        });
+
+        request.onsuccess = () => results.push(request.result);
+        request.onerror = () => reject(request.error);
+      });
+
+      resolve(results);
+    });
+  });
 }

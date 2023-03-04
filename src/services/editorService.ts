@@ -1,5 +1,5 @@
-import type { Theme } from '@/@types';
 import { Monaco } from '@/lib/editor';
+import type { Theme } from '@/models/theme';
 
 export function initializeEditor(div: HTMLDivElement, theme: Theme) {
   const editor = Monaco.getInstance(div, theme);

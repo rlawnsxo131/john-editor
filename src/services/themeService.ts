@@ -1,4 +1,4 @@
-import type { Theme } from '@/@types';
+import type { Theme } from '@/models/theme';
 
 export function set(theme: Theme) {
   localStorage.setItem('theme', theme);
