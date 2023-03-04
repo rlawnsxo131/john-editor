@@ -23,7 +23,7 @@ function renderButton(props?: Partial<ComponentProps<typeof Button>>) {
 
   function clickButton() {
     const button = ButtonElement();
-    if (!button) throw new Error('ButtonNode is null');
+    if (!button) throw new Error('ButtonElement is null');
     return userEvent.click(button);
   }
 
