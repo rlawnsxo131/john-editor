@@ -1,5 +1,6 @@
 import { editor } from 'monaco-editor';
 
+import type { HtmlContainerElement } from '@/@types';
 import type { SupportLanguage, Theme } from '@/models';
 
 type MonacoModel = {
@@ -22,13 +23,13 @@ export default class Monaco {
     dark: 'vs-dark',
   };
 
-  #editor: editor.IStandaloneDiffEditor;
+  #editor: editor.IStandaloneDiffEditor | null;
 
-  private constructor(div: HTMLDivElement, theme: Theme) {
+  private constructor(container: HtmlContainerElement, theme: Theme) {
     editor.onDidCreateDiffEditor((_: editor.IDiffEditor) => {
       console.log('create diff editor');
     });
-    this.#editor = editor.createDiffEditor(div, {
+    this.#editor = editor.createDiffEditor(container, {
       theme: this.#themeMap[theme],
       autoIndent: 'full',
       formatOnType: true,
@@ -38,22 +39,26 @@ export default class Monaco {
     });
   }
 
-  static getInstance(div?: HTMLDivElement, theme?: Theme) {
+  static getInstance(container?: HtmlContainerElement, theme?: Theme) {
     if (!this.#instance) {
-      if (!div) {
-        throw new Error('Manaco initialization requires div');
+      if (!container) {
+        throw new Error('Manaco initialization requires container');
       } else if (!theme) {
         throw new Error('Manaco initialization requires theme value');
       }
 
-      return (this.#instance = new this(div, theme));
+      return (this.#instance = new this(container, theme));
     }
 
     return this.#instance;
   }
 
-  static cleanUp() {
+  static cleanupInstance() {
     this.#instance = null;
+  }
+
+  cleanUpEditor() {
+    this.#editor = null;
   }
 
   setModel(models: [MonacoModel, MonacoModel]) {
@@ -61,7 +66,7 @@ export default class Monaco {
       editor.createModel(model.value, model.language),
     );
 
-    return this.#editor.setModel({
+    return this.#editor?.setModel({
       original,
       modified,
     });
@@ -73,14 +78,14 @@ export default class Monaco {
 
   formatOrigin() {
     return this.#editor
-      .getOriginalEditor()
+      ?.getOriginalEditor()
       .getAction(this.#actions.formatDocument)
       ?.run();
   }
 
   formatModify() {
     return this.#editor
-      .getModifiedEditor()
+      ?.getModifiedEditor()
       .getAction(this.#actions.formatDocument)
       ?.run();
   }

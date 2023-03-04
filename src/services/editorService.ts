@@ -1,25 +1,28 @@
+import type { HtmlContainerElement } from '@/@types';
 import { Monaco } from '@/lib/editor';
-import type { Theme } from '@/models';
+import type { SupportLanguage, Theme } from '@/models';
 
-export function initializeEditor(div: HTMLDivElement, theme: Theme) {
-  const editor = Monaco.getInstance(div, theme);
+export function initializeEditor(
+  container: HtmlContainerElement,
+  theme: Theme,
+) {
+  return new Promise((resolve) => {
+    resolve(Monaco.getInstance(container, theme));
+  });
+}
 
-  editor.setModel([
-    {
-      value: '{"name": "name", "age": "age"}',
-      language: 'json',
-    },
-    {
-      value: '{"name": "name", "age": "age"}',
-      language: 'json',
-    },
-  ]);
-
-  return editor;
+export function setModel(language: SupportLanguage, value: string) {
+  const editor = Monaco.getInstance();
+  const model = {
+    language,
+    value,
+  };
+  return editor.setModel([model, model]);
 }
 
 export function cleanUp() {
-  return Monaco.cleanUp();
+  Monaco.getInstance().cleanUpEditor();
+  Monaco.cleanupInstance();
 }
 
 export function setTheme(theme: Theme) {
