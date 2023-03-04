@@ -21,8 +21,6 @@ export const ulBaseStyle = style({
   listStyle: 'none',
   margin: 0,
   padding: 0,
-  position: 'absolute',
-  top: '3rem',
   display: 'flex',
   flexDirection: 'column',
   width: '100%',

@@ -1,9 +1,9 @@
 import type { PropsWithChildren } from 'react';
 
-import { ulBaseStyle } from '@/styles/base.css';
+import { ul } from './Select.css';
 
 type Props = Required<PropsWithChildren>;
 
 export default function SelectContent({ children }: Props) {
-  return <ul className={ulBaseStyle}>{children}</ul>;
+  return <ul className={ul}>{children}</ul>;
 }
