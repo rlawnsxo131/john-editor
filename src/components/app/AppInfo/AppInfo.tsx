@@ -1,3 +1,3 @@
 export default function AppInfo() {
-  return <div></div>;
+  return <div>app info</div>;
 }
