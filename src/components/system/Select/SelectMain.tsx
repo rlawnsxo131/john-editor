@@ -15,7 +15,7 @@ const SelectMain = forwardRef<HtmlContainerElement, Props>(
     return (
       <div className={block} ref={ref} {...props}>
         {children}
-        {/* @TODO 나중에 에거 처리 다시하기 */}
+        {/* @TODO 접근성 처리 다시하기 */}
         {/* <select className={visullayHiddenBaseStyle}>
           <option>json</option>
         </select> */}

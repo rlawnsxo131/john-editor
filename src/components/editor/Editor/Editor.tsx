@@ -37,6 +37,7 @@ function Editor() {
 
   return (
     <div className={block}>
+      {/* @TODO ErrorBoundary 작성후 errorElement 대체하기 */}
       <Suspense fallback={<Loading />}>
         <Await
           resolve={initialData}
