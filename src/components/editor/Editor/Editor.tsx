@@ -30,6 +30,10 @@ function Editor() {
         }),
       )
       .then((editor) => editor.updateTabSize(2))
+      /**
+       * @TODO 업데이트 기능 추가하기
+       */
+      .then((editor) => editor.setUpdateCallback())
       .catch((reason) => console.error(reason));
 
     return () => editorService.cleanUp();

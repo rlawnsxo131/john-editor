@@ -78,13 +78,25 @@ export default class Monaco {
     });
   }
 
-  // setUpdateCallback(callback) {
-  //   this.#editor?.getModel()?.original.onDidChangeContent()
-  // }
+  /**
+   * @TODO 업데이트 기능 추가하기
+   */
+  setUpdateCallback() {
+    const models = this.#editor?.getModel();
+    const origin = models?.original;
+    const modify = models?.modified;
+    origin?.onDidChangeContent((_) => {
+      console.log(origin.getValue());
+    });
+    modify?.onDidChangeContent((_) => {
+      console.log(modify.getValue());
+    });
+  }
 
   updateTabSize(tabSize: number) {
     this.#editor?.getModel()?.original.updateOptions({ tabSize });
     this.#editor?.getModel()?.modified.updateOptions({ tabSize });
+    return this;
   }
 
   setTheme(theme: Theme) {

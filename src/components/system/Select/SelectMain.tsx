@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import type { HtmlContainerElement } from '@/@types';
 
-// import { visullayHiddenBaseStyle } from '@/styles/base.css';
+// import { visullayHiddenBaseStyle } from '@/styles';
 import { block } from './Select.css';
 
 type Props = HTMLAttributes<HTMLDivElement> & {

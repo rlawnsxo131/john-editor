@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
-import { vars } from '@/styles/theme.css';
-import zIndexes from '@/styles/zIndexes';
+import { vars } from '@/styles';
+import { zIndexes } from '@/styles';
 
 export const header = style({
   position: 'fixed',
@@ -23,10 +23,26 @@ export const headerContent = style({
   paddingRight: '1rem',
 });
 
+export const headerTitleBlock = style({
+  display: 'flex',
+});
+
 export const headerTitleLogo = style({
   color: vars.color.white,
   fontSize: '1.5rem',
+  margin: 0,
   fontWeight: 500,
+});
+
+export const betaTag = style({
+  alignSelf: 'flex-end',
+  display: 'flex',
+  alignItems: 'center',
+  color: vars.color.gray12,
+  background: vars.color.red10,
+  padding: '0.125rem',
+  borderRadius: '4px',
+  marginLeft: '0.25rem',
 });
 
 export const body = style({

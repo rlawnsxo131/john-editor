@@ -1,5 +1,5 @@
 import { safeLocalStorage } from '@/lib/storage';
-import { IS_VISITED_KEY } from '@/models/visit';
+import { IS_VISITED_KEY } from '@/models';
 
 export function isVisitedUser() {
   return new Promise((resolve) => {

@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
-import { buttonBaseStyle, ulBaseStyle } from '@/styles/base.css';
-import { vars } from '@/styles/theme.css';
+import { buttonBaseStyle, ulBaseStyle } from '@/styles';
+import { vars } from '@/styles';
 
 export const block = style({
   position: 'relative',

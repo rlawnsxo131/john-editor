@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
-import { vars } from '@/styles/theme.css';
-import zIndexes from '@/styles/zIndexes';
+import { vars } from '@/styles';
+import { zIndexes } from '@/styles';
 
 export const block = style({
   position: 'fixed',

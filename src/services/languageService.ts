@@ -1,5 +1,5 @@
 import { repository } from '@/lib/db';
-import { SCHEMA_NAME_OBJECT } from '@/lib/db/config';
+import { SCHEMA_NAME_OBJECT } from '@/lib/db';
 import { safeLocalStorage } from '@/lib/storage';
 import type { LanguageRecord, SupportLanguage } from '@/models';
 import { LANGUAGE_VALUE, RECENT_LANGUAGE_KEY } from '@/models';
