@@ -15,6 +15,7 @@ type ColorKey =
 type ColorVar = Record<ColorKey, ColorKey>;
 
 const staticColorVar = {
+  black: '#000',
   white: '#FFF',
 
   'bg-aside': 'hsl(0deg 0% 16%)',

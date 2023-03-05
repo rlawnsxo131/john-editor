@@ -1,1 +1,1 @@
-export const IS_VISITED_KEY = 'is_first_visit';
+export const IS_VISITED_KEY = 'is_visited';

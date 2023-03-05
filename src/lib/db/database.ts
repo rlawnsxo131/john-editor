@@ -66,9 +66,6 @@ export function initializeDatabase() {
   }).then((db) => db.close());
 }
 
-/**
- * @TODO origin 과 modify 데이터를 따로 저장하도록 설계 수정하기
- */
 export function initializeSupportLanguageRecords() {
   return new Promise<IDBValidKey[]>((resolve, reject) => {
     openDatabase().then((db) => {
@@ -82,7 +79,8 @@ export function initializeSupportLanguageRecords() {
       SUPPORT_LANGUAGES.forEach((language) => {
         const request = store.put({
           language,
-          value: SUPPORT_LAUNGUAGE_INITIAL_VALUE[language],
+          origin: SUPPORT_LAUNGUAGE_INITIAL_VALUE[language].origin,
+          modify: SUPPORT_LAUNGUAGE_INITIAL_VALUE[language].modify,
         });
 
         request.onsuccess = () => results.push(request.result);

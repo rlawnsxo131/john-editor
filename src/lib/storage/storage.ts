@@ -98,5 +98,4 @@ export function generateSessionStorage(): Storage {
 }
 
 export const safeLocalStorage = generateStorage();
-
 export const safeSessionStorage = generateSessionStorage();

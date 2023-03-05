@@ -2,8 +2,8 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
 import type { HtmlContainerElement } from '@/@types';
-import { visullayHiddenBaseStyle } from '@/styles/base.css';
 
+// import { visullayHiddenBaseStyle } from '@/styles/base.css';
 import { block } from './Select.css';
 
 type Props = HTMLAttributes<HTMLDivElement> & {
@@ -15,9 +15,10 @@ const SelectMain = forwardRef<HtmlContainerElement, Props>(
     return (
       <div className={block} ref={ref} {...props}>
         {children}
-        <select className={visullayHiddenBaseStyle}>
+        {/* @TODO 나중에 에거 처리 다시하기 */}
+        {/* <select className={visullayHiddenBaseStyle}>
           <option>json</option>
-        </select>
+        </select> */}
       </div>
     );
   },

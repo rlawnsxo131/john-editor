@@ -25,7 +25,12 @@ export default function EditorLanguageSelect() {
 
     languageService
       .getByKey(language)
-      .then((data) => editorService.setModel(data.language, data.value))
+      .then((data) =>
+        editorService.setModel(data.language, {
+          origin: data.origin,
+          modify: data.modify,
+        }),
+      )
       .then((editor) => editor.updateTabSize(2))
       .then(() => languageService.setRecentLanguage(language))
       .catch((reason) => console.error(reason));

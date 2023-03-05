@@ -14,24 +14,24 @@ export function initializeEditor(
 /**
  * @TODO setmodel typescript 문제 해결하기
  */
-type SetModelParams = {
-  origin: {
-    language: SupportLanguage;
-    value: string;
-  };
-  modify: {
-    language: SupportLanguage;
-    value: string;
-  };
-};
-
-export function setModel(language: SupportLanguage, value: string) {
+export function setModel(
+  language: SupportLanguage,
+  values: {
+    origin: string;
+    modify: string;
+  },
+) {
   const editor = Monaco.getInstance();
-  const model = {
-    language,
-    value,
-  };
-  editor.setModel([model, model]);
+  editor.setModel([
+    {
+      language,
+      value: values.origin,
+    },
+    {
+      language,
+      value: values.modify,
+    },
+  ]);
   return editor;
 }
 
