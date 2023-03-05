@@ -23,12 +23,12 @@ function Editor() {
       .initializeEditor(div, themeService.get())
       .then((_) => languageService.getRecentLanguage())
       .then((recentLanguage) => languageService.getByKey(recentLanguage))
-      .then((data) => {
-        return editorService.setModel(data.language, {
+      .then((data) =>
+        editorService.setModel(data.language, {
           origin: data.origin,
           modify: data.modify,
-        });
-      })
+        }),
+      )
       .then((editor) => editor.updateTabSize(2))
       .catch((reason) => console.error(reason));
 
