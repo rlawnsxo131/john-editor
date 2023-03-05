@@ -1,6 +1,7 @@
 import { Suspense, useMemo } from 'react';
 import { Await } from 'react-router-dom';
 
+import Loading from '@/components/common/Loading';
 import useRefEffect from '@/hooks/useRefEffect';
 import { initializeDatabase, initializeSupportLanguageRecords } from '@/lib/db';
 import { editorService, languageService, themeService } from '@/services';
@@ -27,7 +28,7 @@ function Editor() {
 
   return (
     <div className={block}>
-      <Suspense fallback={<h1 style={{ color: 'white' }}>laoding</h1>}>
+      <Suspense fallback={<Loading />}>
         <Await resolve={initialRecords} errorElement={<div>error</div>}>
           {() => <div ref={containerRef} className={editor} />}
         </Await>

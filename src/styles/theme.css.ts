@@ -27,6 +27,8 @@ const staticColorVar = {
   'bg-select-active': 'hsl(192deg 79% 13%)',
   'bg-select-trigger': 'hsl(0deg 0% 11%)',
 
+  'bg-opaque-layer': 'rgba(100, 100, 100, 0.5)',
+
   'text-select': 'hsl(0deg 0% 93%)',
 } as const;
 

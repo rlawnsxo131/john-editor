@@ -2,7 +2,7 @@ import type { HTMLAttributes, ReactNode } from 'react';
 
 import { li } from './Select.css';
 
-type Props = Omit<HTMLAttributes<HTMLLIElement>, 'className'> & {
+type Props = HTMLAttributes<HTMLLIElement> & {
   children: ReactNode;
 };
 

@@ -66,6 +66,9 @@ export function initializeDatabase() {
   }).then((db) => db.close());
 }
 
+/**
+ * @TODO origin 과 modify 데이터를 따로 저장하도록 설계 수정하기
+ */
 export function initializeSupportLanguageRecords() {
   return new Promise<IDBValidKey[]>((resolve, reject) => {
     openDatabase().then((db) => {

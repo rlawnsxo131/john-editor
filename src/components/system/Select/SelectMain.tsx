@@ -6,7 +6,7 @@ import { visullayHiddenBaseStyle } from '@/styles/base.css';
 
 import { block } from './Select.css';
 
-type Props = Omit<HTMLAttributes<HTMLDivElement>, 'className'> & {
+type Props = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
 };
 
