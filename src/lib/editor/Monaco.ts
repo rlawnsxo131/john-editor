@@ -9,7 +9,7 @@ type MonacoModel = {
 };
 
 /**
- * get all actions: editor.getSupportedActions()
+ * @description get all actions: editor.getSupportedActions()
  */
 export default class Monaco {
   static #instance: Monaco | null;
@@ -29,6 +29,7 @@ export default class Monaco {
     editor.onDidCreateDiffEditor((_: editor.IDiffEditor) => {
       console.log('create diff editor');
     });
+
     this.#editor = editor.createDiffEditor(container, {
       theme: this.#themeMap[theme],
       autoIndent: 'full',
@@ -53,6 +54,9 @@ export default class Monaco {
     return this.#instance;
   }
 
+  /**
+   * @TODO cleanupInstance + cleanupEditor 이벤트를 다르게 처리가능한지 알나보기
+   */
   static cleanupInstance() {
     return new Promise<boolean>((resolve) => {
       this.#instance = null;
@@ -78,6 +82,12 @@ export default class Monaco {
     });
   }
 
+  updateTabSize(tabSize: number) {
+    this.#editor?.getModel()?.original.updateOptions({ tabSize });
+    this.#editor?.getModel()?.modified.updateOptions({ tabSize });
+    return this;
+  }
+
   /**
    * @TODO 업데이트 기능 추가하기
    */
@@ -91,12 +101,6 @@ export default class Monaco {
     modify?.onDidChangeContent((_) => {
       console.log(modify.getValue());
     });
-  }
-
-  updateTabSize(tabSize: number) {
-    this.#editor?.getModel()?.original.updateOptions({ tabSize });
-    this.#editor?.getModel()?.modified.updateOptions({ tabSize });
-    return this;
   }
 
   setTheme(theme: Theme) {

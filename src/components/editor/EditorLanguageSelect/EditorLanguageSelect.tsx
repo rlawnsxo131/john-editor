@@ -2,7 +2,6 @@ import type { BaseSyntheticEvent, MouseEvent } from 'react';
 import { useEffect, useState } from 'react';
 
 import Select from '@/components/system/Select';
-import SelectContent from '@/components/system/Select/SelectContent';
 import useRefEffect from '@/hooks/useRefEffect';
 import type { SupportLanguage } from '@/models';
 import { SUPPORT_LANGUAGES } from '@/models';
@@ -61,7 +60,7 @@ export default function EditorLanguageSelect() {
     <Select ref={ref}>
       <Select.Trigger onClick={handleVisible}>{language}</Select.Trigger>
       {visible && (
-        <SelectContent>
+        <Select.Content>
           {SUPPORT_LANGUAGES.map((language) => (
             <Select.Option
               key={language}
@@ -71,7 +70,7 @@ export default function EditorLanguageSelect() {
               {language}
             </Select.Option>
           ))}
-        </SelectContent>
+        </Select.Content>
       )}
     </Select>
   );

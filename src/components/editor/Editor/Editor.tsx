@@ -15,7 +15,7 @@ import { block, editor } from './Editor.css';
 
 function Editor() {
   const initialData = initializeDatabase()
-    .then((_) => initializeSupportLanguageRecords())
+    .then(() => initializeSupportLanguageRecords())
     .then((_) => visitService.isVisitedUser());
 
   const containerRef = useRefEffect((div: HTMLDivElement) => {
