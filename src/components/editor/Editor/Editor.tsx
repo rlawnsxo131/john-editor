@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useMemo } from 'react';
 import { Await } from 'react-router-dom';
 
 import useRefEffect from '@/hooks/useRefEffect';
@@ -8,8 +8,9 @@ import { editorService, languageService, themeService } from '@/services';
 import { block, editor } from './Editor.css';
 
 function Editor() {
-  const initialRecords = initializeDatabase().then((_) =>
-    initializeSupportLanguageRecords(),
+  const initialRecords = useMemo(
+    () => initializeDatabase().then((_) => initializeSupportLanguageRecords()),
+    [],
   );
 
   const containerRef = useRefEffect((div: HTMLDivElement) => {
@@ -18,6 +19,7 @@ function Editor() {
       .then((_) => languageService.getRecentLanguage())
       .then((recentLanguage) => languageService.getByKey(recentLanguage))
       .then((data) => editorService.setModel(data.language, data.value))
+      .then((editor) => editor.updateTabSize(2))
       .catch((reason) => console.error(reason));
 
     return () => editorService.cleanUp();

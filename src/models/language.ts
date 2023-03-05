@@ -20,17 +20,17 @@ export const SUPPORT_LANGUAGES: readonly SupportLanguage[] = [
 
 export const SUPPORT_LAUNGUAGE_INITIAL_VALUE: Record<SupportLanguage, string> =
   {
-    json: '{"name": "name", "age": "1"}',
-    javascript: "function hello() {\n console.log('world');\n}",
+    json: '{ "name": "name", "age": "1" }',
+    javascript: "function hello() {\n  console.log('world');\n}",
     typescript:
-      "type HelloWorld = Record<string, string>;\nconst helloWorld: HelloWorld = { hello: 'world'};",
+      "type HelloWorld = Record<string, string>;\nconst helloWorld: HelloWorld = { hello: 'world' };",
     graphql: 'query {\nhello {\n id\n name\n}\n }',
     html: `<div>hello world</div>`,
   } as const;
 
 type LanguageValue = Record<SupportLanguage, SupportLanguage>;
 
-export const LANGUAGE_KEY = 'language';
+export const RECENT_LANGUAGE_KEY = 'recent_language';
 export const LANGUAGE_VALUE = SUPPORT_LANGUAGES.reduce<LanguageValue>(
   (acc, language) => {
     acc[language] = language;

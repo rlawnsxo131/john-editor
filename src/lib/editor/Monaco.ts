@@ -78,6 +78,11 @@ export default class Monaco {
     });
   }
 
+  updateTabSize(tabSize: number) {
+    this.#editor?.getModel()?.original.updateOptions({ tabSize });
+    this.#editor?.getModel()?.modified.updateOptions({ tabSize });
+  }
+
   setTheme(theme: Theme) {
     return editor.setTheme(this.#themeMap[theme]);
   }

@@ -18,6 +18,7 @@ type UpgradeCallback = (
 export function openDatabase(upgradeCallback?: UpgradeCallback) {
   return new Promise<IDBDatabase>((resolve, reject) => {
     if (!indexedDB) reject(new Error('indexedDB is not supported'));
+
     const request = indexedDB.open(
       INDEXED_DB_CONFIG.name,
       INDEXED_DB_CONFIG.version,
@@ -28,7 +29,6 @@ export function openDatabase(upgradeCallback?: UpgradeCallback) {
     };
 
     request.onsuccess = () => {
-      console.log('indexedDB version:', request.result.version);
       const db = request.result;
       db.onversionchange = () => {
         db.close();
@@ -61,6 +61,7 @@ export function initializeDatabase() {
         return acc;
       }, []);
       console.log('create tables:', names.join());
+      console.log('current version:', db.version);
     }
   }).then((db) => db.close());
 }

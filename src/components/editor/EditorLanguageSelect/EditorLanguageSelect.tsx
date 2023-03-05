@@ -1,4 +1,5 @@
 import type { BaseSyntheticEvent, MouseEvent } from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 
 import Select from '@/components/system/Select';
@@ -21,9 +22,12 @@ export default function EditorLanguageSelect() {
 
     setLanguage(language);
     setVisible(false);
+
     languageService
       .getByKey(language)
       .then((data) => editorService.setModel(data.language, data.value))
+      .then((editor) => editor.updateTabSize(2))
+      .then(() => languageService.setRecentLanguage(language))
       .catch((reason) => console.error(reason));
   };
 
@@ -44,6 +48,10 @@ export default function EditorLanguageSelect() {
     },
     [visible],
   );
+
+  useEffect(() => {
+    setLanguage(languageService.getRecentLanguage());
+  }, []);
 
   return (
     <Select ref={ref}>

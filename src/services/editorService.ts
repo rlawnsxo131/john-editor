@@ -21,7 +21,8 @@ export function setModel(language: SupportLanguage, value: string) {
     language,
     value,
   };
-  return editor.setModel([model, model]);
+  editor.setModel([model, model]);
+  return editor;
 }
 
 export function cleanUp() {
