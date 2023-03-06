@@ -29,7 +29,7 @@ export default function EditorLanguageSelect() {
           modify: data.modify,
         }),
       )
-      .then((editor) => editor.updateTabSize(2))
+      .then((monaco) => monaco.updateTabSize(2))
       .then(() => languageService.setRecentLanguage(language))
       .catch((reason) => console.error(reason));
   };
