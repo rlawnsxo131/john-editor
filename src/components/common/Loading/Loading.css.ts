@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { rotate } from '@/styles';
+import { rotateKeyframes } from '@/styles';
 import { zIndexes } from '@/styles';
 
 export const block = style({
@@ -16,5 +16,5 @@ export const block = style({
 });
 
 export const icon = style({
-  animation: `${rotate} 1.25s linear infinite`,
+  animation: `${rotateKeyframes} 1.25s linear infinite`,
 });

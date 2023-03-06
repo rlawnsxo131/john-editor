@@ -1,6 +1,6 @@
 import { keyframes } from '@vanilla-extract/css';
 
-export const rotate = keyframes({
+export const rotateKeyframes = keyframes({
   '0%': {
     transform: 'rotate(0deg)',
   },
