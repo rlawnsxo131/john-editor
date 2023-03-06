@@ -13,7 +13,7 @@ import {
 
 import { block, editor } from './Editor.css';
 
-function Editor() {
+export default function Editor() {
   const initialData = initializeDatabase()
     .then(() => initializeSupportLanguageRecords())
     .then((_) => visitService.isVisitedUser());
@@ -55,5 +55,3 @@ function Editor() {
     </div>
   );
 }
-
-export default Editor;
