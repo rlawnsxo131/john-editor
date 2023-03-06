@@ -101,6 +101,7 @@ export default class Monaco {
     modify?.onDidChangeContent((_) => {
       console.log(modify.getValue());
     });
+    return this;
   }
 
   setTheme(theme: Theme) {

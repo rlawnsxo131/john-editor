@@ -29,11 +29,11 @@ export default function Editor() {
           modify: data.modify,
         }),
       )
-      .then((editor) => editor.updateTabSize(2))
       /**
        * @TODO 업데이트 기능 추가하기
        */
       .then((editor) => editor.setUpdateCallback())
+      .then((editor) => editor.updateTabSize(2))
       .catch((reason) => console.error(reason));
 
     return () => editorService.cleanUp();
