@@ -58,8 +58,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["vite", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:4.1.4"],\
             ["vite-plugin-checker", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:0.5.6"],\
             ["vite-plugin-monaco-editor", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:1.1.0"],\
-            ["vitest", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:0.29.2"],\
-            ["yarn", "npm:1.22.19"]\
+            ["vitest", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:0.29.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3995,8 +3994,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["vite", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:4.1.4"],\
             ["vite-plugin-checker", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:0.5.6"],\
             ["vite-plugin-monaco-editor", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:1.1.0"],\
-            ["vitest", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:0.29.2"],\
-            ["yarn", "npm:1.22.19"]\
+            ["vitest", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:0.29.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -6450,15 +6448,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yaml-npm-1.10.2-0e780aebdf-ce4ada136e.zip/node_modules/yaml/",\
           "packageDependencies": [\
             ["yaml", "npm:1.10.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["yarn", [\
-        ["npm:1.22.19", {\
-          "packageLocation": "./.yarn/unplugged/yarn-npm-1.22.19-6ba13b96dc/node_modules/yarn/",\
-          "packageDependencies": [\
-            ["yarn", "npm:1.22.19"]\
           ],\
           "linkType": "HARD"\
         }]\
