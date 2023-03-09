@@ -43,7 +43,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vanilla-extract/css", "npm:1.9.5"],\
             ["@vanilla-extract/vite-plugin", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:3.8.0"],\
             ["@vitejs/plugin-react", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:3.1.0"],\
-            ["add", "npm:2.0.6"],\
             ["esbuild", "npm:0.17.11"],\
             ["eslint", "npm:8.35.0"],\
             ["eslint-config-prettier", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:8.6.0"],\
@@ -1789,15 +1788,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/acorn-walk-npm-8.2.0-2f2cac3177-1715e76c01.zip/node_modules/acorn-walk/",\
           "packageDependencies": [\
             ["acorn-walk", "npm:8.2.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["add", [\
-        ["npm:2.0.6", {\
-          "packageLocation": "./.yarn/cache/add-npm-2.0.6-c96b78d852-e2d23d4049.zip/node_modules/add/",\
-          "packageDependencies": [\
-            ["add", "npm:2.0.6"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3990,7 +3980,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vanilla-extract/css", "npm:1.9.5"],\
             ["@vanilla-extract/vite-plugin", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:3.8.0"],\
             ["@vitejs/plugin-react", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:3.1.0"],\
-            ["add", "npm:2.0.6"],\
             ["esbuild", "npm:0.17.11"],\
             ["eslint", "npm:8.35.0"],\
             ["eslint-config-prettier", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:8.6.0"],\

@@ -1373,13 +1373,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"add@npm:^2.0.6":
-  version: 2.0.6
-  resolution: "add@npm:2.0.6"
-  checksum: e2d23d40494565dfed4acd65e478570c444db5ac6c053551ed429c39ea0f2c99d83df63e7befec936df601827d2254d06a2fb6f7dcfd2022e810b25eab818b8c
-  languageName: node
-  linkType: hard
-
 "agent-base@npm:6, agent-base@npm:^6.0.2":
   version: 6.0.2
   resolution: "agent-base@npm:6.0.2"
@@ -3380,7 +3373,6 @@ __metadata:
     "@vanilla-extract/css": ^1.9.5
     "@vanilla-extract/vite-plugin": ^3.8.0
     "@vitejs/plugin-react": ^3.1.0
-    add: ^2.0.6
     esbuild: ^0.17.11
     eslint: ^8.35.0
     eslint-config-prettier: ^8.6.0
