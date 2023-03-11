@@ -11,6 +11,10 @@ export function initializeEditor(
   });
 }
 
+export function isExistsEditor() {
+  return Monaco.isExistsInstance();
+}
+
 /**
  * @TODO setmodel typescript 문제 해결하기
  */

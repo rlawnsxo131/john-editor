@@ -5,7 +5,7 @@ import { editorService } from '@/services';
 import { block } from './EditorFormatButtons.css';
 
 export default function EditorFormatButtons() {
-  const formatAll = () => {
+  const formatAll = () =>
     Promise.allSettled([
       editorService.formatOrigin(),
       editorService.formatModify(),
@@ -16,7 +16,6 @@ export default function EditorFormatButtons() {
         }
       });
     });
-  };
 
   const formatLeft = () =>
     editorService.formatOrigin()?.catch((reason) => console.error(reason));

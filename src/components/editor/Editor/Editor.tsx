@@ -1,23 +1,9 @@
-import { Suspense } from 'react';
-import { Await, Navigate } from 'react-router-dom';
-
-import Loading from '@/components/common/Loading';
 import useRefEffect from '@/hooks/useRefEffect';
-import { initializeDatabase, initializeSupportLanguageRecords } from '@/lib/db';
-import {
-  editorService,
-  languageService,
-  themeService,
-  visitService,
-} from '@/services';
+import { editorService, languageService, themeService } from '@/services';
 
 import { block, editor } from './Editor.css';
 
-export default function Editor() {
-  const initialData = initializeDatabase()
-    .then(() => initializeSupportLanguageRecords())
-    .then((_) => visitService.isVisitedUser());
-
+function Editor() {
   const containerRef = useRefEffect((div: HTMLDivElement) => {
     editorService
       .initializeEditor(div, themeService.get())
@@ -41,17 +27,9 @@ export default function Editor() {
 
   return (
     <div className={block}>
-      {/* @TODO ErrorBoundary 작성후 errorElement 대체하기 */}
-      <Suspense fallback={<Loading />}>
-        <Await
-          resolve={initialData}
-          errorElement={<div>error</div>}
-          children={(isVisitedUser: boolean) => {
-            if (!isVisitedUser) return <Navigate replace to="/info" />;
-            return <div ref={containerRef} className={editor} />;
-          }}
-        />
-      </Suspense>
+      <div ref={containerRef} className={editor} />
     </div>
   );
 }
+
+export default Editor;

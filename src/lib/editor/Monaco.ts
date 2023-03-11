@@ -54,6 +54,10 @@ export default class Monaco {
     return this.#instance;
   }
 
+  static isExistsInstance() {
+    return !!this.#instance;
+  }
+
   /**
    * @TODO cleanupInstance + cleanupEditor 이벤트를 다르게 처리가능한지 알나보기
    */
@@ -85,6 +89,7 @@ export default class Monaco {
   updateTabSize(tabSize: number) {
     this.#editor?.getModel()?.original.updateOptions({ tabSize });
     this.#editor?.getModel()?.modified.updateOptions({ tabSize });
+
     return this;
   }
 
@@ -95,12 +100,14 @@ export default class Monaco {
     const models = this.#editor?.getModel();
     const origin = models?.original;
     const modify = models?.modified;
+
     origin?.onDidChangeContent((_) => {
       console.log(origin.getValue());
     });
     modify?.onDidChangeContent((_) => {
       console.log(modify.getValue());
     });
+
     return this;
   }
 
