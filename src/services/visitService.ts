@@ -9,5 +9,5 @@ export function isVisitedUser() {
   if (!isVisited) {
     safeLocalStorage.set(IS_VISITED_KEY, 'true');
   }
-  !!isVisited;
+  return !!isVisited;
 }
