@@ -8,7 +8,7 @@ export const header = style({
   left: 0,
   width: '100%',
   height: '3rem',
-  paddingLeft: '4rem',
+  paddingLeft: '3.25rem',
   display: 'flex',
   background: vars.color['bg-header'],
   zIndex: zIndexes.header,
@@ -37,8 +37,8 @@ export const betaTag = style({
   alignSelf: 'flex-end',
   display: 'flex',
   alignItems: 'center',
-  color: vars.color.gray12,
-  background: vars.color.red10,
+  color: vars.color.white,
+  background: vars.color['bg-beta-tag'],
   padding: '0.125rem',
   borderRadius: '4px',
   marginLeft: '0.25rem',
@@ -58,7 +58,7 @@ export const main = style({
 export const aside = style({
   display: 'flex',
   flexDirection: 'column',
-  width: '4rem',
+  width: '3.25rem',
   background: vars.color['bg-aside'],
 });
 

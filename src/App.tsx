@@ -1,8 +1,9 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import AppDataInitializer from './components/app/AppDataInitializer';
 import AppLayout from './components/app/AppLayout';
+import Loading from './components/common/Loading';
 import EditorFormatButtons from './components/editor/EditorFormatButtons';
 import EditorLanguageSelect from './components/editor/EditorLanguageSelect';
 import EditorMenuBox from './components/editor/EditorMenuBox';
@@ -37,11 +38,19 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Editor />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Editor />
+          </Suspense>
+        ),
       },
       {
         path: '/info',
-        element: <AppInfo />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <AppInfo />
+          </Suspense>
+        ),
       },
     ],
   },

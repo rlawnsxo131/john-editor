@@ -24,13 +24,15 @@ const staticColorVar = {
   'bg-btn-primary': 'hsl(191deg 91% 37%)',
   'bg-btn-primary-hover': 'hsl(190, 95.0%, 39.0%)',
 
-  'bg-select': 'hsl(0deg 0% 16%)',
-  'bg-select-active': 'hsl(192deg 79% 13%)',
-  'bg-select-trigger': 'hsl(0deg 0% 11%)',
+  'bg-select-box': 'hsl(0deg 0% 16%)',
+  'bg-select-box-active': 'hsl(192deg 79% 13%)',
+  'bg-select-box-trigger': 'hsl(0deg 0% 11%)',
+
+  'bg-beta-tag': 'hsl(358deg 85% 64%)',
 
   'bg-opaque-layer': 'rgba(100, 100, 100, 0.5)',
 
-  'text-select': 'hsl(0deg 0% 93%)',
+  'text-select-box': 'hsl(0deg 0% 93%)',
 } as const;
 
 const lightColors = {

@@ -10,7 +10,7 @@ export const block = style({
   width: '8rem',
   display: 'flex',
   flexDirection: 'column',
-  background: vars.color['bg-select'],
+  background: vars.color['bg-select-box'],
 });
 
 export const selectTrigger = style([
@@ -21,8 +21,8 @@ export const selectTrigger = style([
     justifyContent: 'space-between',
     alignItems: 'center',
     border: 'none',
-    color: vars.color['text-select'],
-    background: vars.color['bg-select-trigger'],
+    color: vars.color['text-select-box'],
+    background: vars.color['bg-select-box-trigger'],
   },
 ]);
 
@@ -32,7 +32,7 @@ export const ul = style([
     position: 'absolute',
     top: '3rem',
     borderRadius: '4px',
-    background: vars.color['bg-select'],
+    background: vars.color['bg-select-box'],
   },
 ]);
 
@@ -40,8 +40,8 @@ export const li = style({
   display: 'flex',
   alignItems: 'center',
   padding: '0.5rem 0.725rem',
-  color: vars.color['text-select'],
-  background: vars.color['bg-select'],
+  color: vars.color['text-select-box'],
+  background: vars.color['bg-select-box'],
   cursor: 'pointer',
   selectors: {
     '&:nth-of-type(1)': {
@@ -53,7 +53,7 @@ export const li = style({
       borderBottomRightRadius: '4px',
     },
     '&:hover': {
-      background: vars.color['bg-select-active'],
+      background: vars.color['bg-select-box-active'],
     },
   },
 });
