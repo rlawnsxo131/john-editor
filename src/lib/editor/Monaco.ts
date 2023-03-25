@@ -99,6 +99,8 @@ export default class Monaco {
 
   /**
    * @TODO 업데이트 기능 추가하기
+   * origin 과 modify 에 이벤트가 비동기로 발생하는데,
+   * 이 두 이벤트를 묶을 방법이 있나 고민해보자
    */
   setUpdateCallback() {
     const models = this.#editor?.getModel();
