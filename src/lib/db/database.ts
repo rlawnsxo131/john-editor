@@ -74,7 +74,7 @@ export function initializeSupportLanguageRecords() {
         'readwrite',
       );
       const store = tx.objectStore(SCHEMA_NAME_OBJECT.support_language);
-      const results: IDBValidKey[] = [];
+      const result: IDBValidKey[] = [];
 
       SUPPORT_LANGUAGES.forEach((language) => {
         const request = store.put({
@@ -83,11 +83,11 @@ export function initializeSupportLanguageRecords() {
           modify: SUPPORT_LAUNGUAGE_INITIAL_VALUE[language].modify,
         });
 
-        request.onsuccess = () => results.push(request.result);
+        request.onsuccess = () => result.push(request.result);
         request.onerror = () => reject(request.error);
       });
 
-      resolve(results);
+      resolve(result);
     });
   });
 }

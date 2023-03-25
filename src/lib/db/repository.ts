@@ -39,6 +39,22 @@ export function getByKey<T>(
   });
 }
 
+export function put(
+  storeName: IndexedDBStore['name'],
+  value: Record<string, string>,
+) {
+  return new Promise<IDBValidKey>((resolve, reject) => {
+    openDatabase().then((db) => {
+      const tx = db.transaction(storeName, 'readwrite');
+      const store = tx.objectStore(storeName);
+      const request = store.put({ ...value });
+
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+  });
+}
+
 export function getKey(storeName: IndexedDBStore['name'], key: IDBValidKey) {
   return new Promise<IDBValidKey | undefined>((resolve, reject) => {
     openDatabase().then((db) => {

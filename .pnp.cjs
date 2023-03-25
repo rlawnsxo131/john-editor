@@ -33,6 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:14.0.0"],\
             ["@testing-library/user-event", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:14.4.3"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.14.6"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
@@ -49,6 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:4.6.0"],\
             ["eslint-plugin-simple-import-sort", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:10.0.0"],\
             ["jsdom", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:21.1.0"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["monaco-editor", "npm:0.36.1"],\
             ["prettier", "npm:2.8.4"],\
             ["react", "npm:18.2.0"],\
@@ -1219,6 +1221,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-json-schema-npm-7.0.11-79462ae5ca-527bddfe62.zip/node_modules/@types/json-schema/",\
           "packageDependencies": [\
             ["@types/json-schema", "npm:7.0.11"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/lodash", [\
+        ["npm:4.14.191", {\
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.191-67a04a969b-ba0d5434e1.zip/node_modules/@types/lodash/",\
+          "packageDependencies": [\
+            ["@types/lodash", "npm:4.14.191"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/lodash.debounce", [\
+        ["npm:4.0.7", {\
+          "packageLocation": "./.yarn/cache/@types-lodash.debounce-npm-4.0.7-efe92bf273-e873b2d77f.zip/node_modules/@types/lodash.debounce/",\
+          "packageDependencies": [\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
+            ["@types/lodash", "npm:4.14.191"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3969,6 +3990,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:14.0.0"],\
             ["@testing-library/user-event", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:14.4.3"],\
+            ["@types/lodash.debounce", "npm:4.0.7"],\
             ["@types/node", "npm:18.14.6"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
@@ -3985,6 +4007,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:4.6.0"],\
             ["eslint-plugin-simple-import-sort", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:10.0.0"],\
             ["jsdom", "virtual:96d3f8880f66765623713990805fbff78eb39f80736f98cc10683508cc8f9fbe413e478207f85f3d4219d0bc013d9239d8acef414cf2a4257f88f50927541293#npm:21.1.0"],\
+            ["lodash.debounce", "npm:4.0.8"],\
             ["monaco-editor", "npm:0.36.1"],\
             ["prettier", "npm:2.8.4"],\
             ["react", "npm:18.2.0"],\

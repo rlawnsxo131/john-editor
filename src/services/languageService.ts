@@ -28,3 +28,7 @@ export function getByKey(key: SupportLanguage) {
     key,
   );
 }
+
+export function putLanguageValue(newRecord: LanguageRecord) {
+  return repository.put(SCHEMA_NAME_OBJECT.support_language, newRecord);
+}
