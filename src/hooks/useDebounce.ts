@@ -4,7 +4,7 @@ import { useEffect, useMemo } from 'react';
 import usePreservedCallback from './usePreservedCallback';
 import usePreservedReference from './usePreservedReference';
 
-export function useDebounce<Callback extends (...args: any[]) => any>(
+export default function useDebounce<Callback extends (...args: any[]) => any>(
   callback: Callback,
   wait: number,
   options: Parameters<typeof debounce>[2] = {},
