@@ -48,9 +48,11 @@ export default class Monaco {
 
   #onceCreateEditor(theme: Theme) {
     /**
-     * @description monaco 생성시 HTMLElement 가 필요한데, react component 가 unmount 되었다가 다시 붙을때,
+     * @description
+     *
+     * monaco 생성시 HTMLElement 가 필요한데, react component 가 unmount 되었다가 다시 붙을때,
      * 같은 HTMLElement 참조를 보지 않기때문에 미리 고정된 HTMLElement 를 만들어 놓고,
-     * 불필요한 class/editor 의 재생성을 회피합니다.
+     * 불필요한 monaco 의 재생성을 회피합니다.
      */
     if (!this.#editorContainer) {
       const editorContainer = document.createElement('div');
