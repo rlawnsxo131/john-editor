@@ -21,8 +21,6 @@ function Editor() {
       .then((monaco) => monaco.setUpdateCallback())
       .then((monaco) => monaco.updateTabSize(2))
       .catch((reason) => console.error(reason));
-
-    return () => editorService.cleanUp();
   }, []);
 
   return (

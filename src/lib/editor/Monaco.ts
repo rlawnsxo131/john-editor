@@ -12,8 +12,6 @@ type MonacoModel = {
  * @description get all actions: editor.getSupportedActions()
  */
 export default class Monaco {
-  static #instance: Monaco | null;
-
   readonly #actions = {
     formatDocument: 'editor.action.formatDocument',
   };
@@ -23,34 +21,24 @@ export default class Monaco {
     dark: 'vs-dark',
   };
 
-  #editor: editor.IStandaloneDiffEditor | null;
+  static #instance: Monaco | null;
 
-  private constructor(container: HtmlContainerElement, theme: Theme) {
+  #editorContainer: HtmlContainerElement | null = null;
+  #editor: editor.IStandaloneDiffEditor | null = null;
+
+  private constructor(theme: Theme) {
     editor.onDidCreateDiffEditor((_: editor.IDiffEditor) => {
       console.log('create diff editor');
     });
 
-    this.#editor = editor.createDiffEditor(container, {
-      theme: this.#themeMap[theme],
-      autoIndent: 'full',
-      formatOnType: true,
-      originalEditable: true,
-      automaticLayout: true,
-      enableSplitViewResizing: true,
-    });
+    this.#onceCreateEditor(theme);
   }
 
-  static getInstance(container?: HtmlContainerElement, theme?: Theme) {
+  static getInstance(theme?: Theme) {
     if (!this.#instance) {
-      if (!container) {
-        throw new Error('Manaco initialization requires container');
-      } else if (!theme) {
-        throw new Error('Manaco initialization requires theme value');
-      }
-
-      return (this.#instance = new this(container, theme));
+      if (!theme) throw new Error('Manaco initialization requires theme value');
+      return (this.#instance = new this(theme));
     }
-
     return this.#instance;
   }
 
@@ -58,21 +46,37 @@ export default class Monaco {
     return !!this.#instance;
   }
 
-  /**
-   * @TODO cleanupInstance + cleanupEditor 이벤트를 다르게 처리가능한지 알나보기
-   */
-  static cleanupInstance() {
-    return new Promise<boolean>((resolve) => {
-      this.#instance = null;
-      resolve(true);
-    });
+  #onceCreateEditor(theme: Theme) {
+    /**
+     * @description monaco 생성시 HTMLElement 가 필요한데, react component 가 unmount 되었다가 다시 붙을때,
+     * @description 같은 HTMLElement 참조를 보지 않기때문에 미리 고정된 HTMLElement 를 만들어 놓고,
+     * @description 불필요한 class/editor 의 재생성을 회피합니다.
+     */
+    if (!this.#editorContainer) {
+      const editorContainer = document.createElement('div');
+      editorContainer.style.flex = '1';
+      editorContainer.style.width = '100%';
+      editorContainer.style.height = '100%';
+      this.#editorContainer = editorContainer;
+
+      this.#editor = editor.createDiffEditor(this.#editorContainer, {
+        theme: this.#themeMap[theme],
+        autoIndent: 'full',
+        formatOnType: true,
+        originalEditable: true,
+        automaticLayout: true,
+        enableSplitViewResizing: true,
+      });
+    }
+
+    return this.#editorContainer;
   }
 
-  cleanUpEditor() {
-    return new Promise<boolean>((resolve) => {
-      this.#editor = null;
-      resolve(true);
-    });
+  appendEditorFor(container: HtmlContainerElement) {
+    if (!this.#editorContainer)
+      throw new Error('Manaco appendEditor method requires container');
+
+    container.appendChild(this.#editorContainer);
   }
 
   setModel(models: [MonacoModel, MonacoModel]) {
