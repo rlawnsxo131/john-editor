@@ -76,7 +76,7 @@ export default class Monaco {
     if (!this.#editorContainer)
       throw new Error('Manaco appendEditor method requires container');
 
-    container.appendChild(this.#editorContainer);
+    return container.appendChild(this.#editorContainer);
   }
 
   setModel(models: [MonacoModel, MonacoModel]) {
