@@ -2,9 +2,9 @@ import type { BaseSyntheticEvent, MouseEvent } from 'react';
 import { useEffect, useState } from 'react';
 
 import Select from '@/components/system/Select';
+import type { SupportLanguage } from '@/db/models';
+import { SUPPORT_LANGUAGES } from '@/db/models';
 import useRefEffect from '@/hooks/useRefEffect';
-import type { SupportLanguage } from '@/lib/db/models';
-import { SUPPORT_LANGUAGES } from '@/lib/db/models';
 import { editorService, languageService } from '@/services';
 
 export default function EditorLanguageSelect() {

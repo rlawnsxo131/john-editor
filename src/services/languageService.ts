@@ -1,8 +1,8 @@
-import { repository } from '@/lib/db';
-import { SCHEMA_NAME_OBJECT } from '@/lib/db';
-import type { LanguageRecord, SupportLanguage } from '@/lib/db/models';
-import { LANGUAGE_VALUE, RECENT_LANGUAGE_KEY } from '@/lib/db/models';
-import { SUPPORT_LANGUAGES } from '@/lib/db/models';
+import { repository } from '@/db';
+import { SCHEMA_NAME_OBJECT } from '@/db';
+import type { LanguageRecord, SupportLanguage } from '@/db/models';
+import { LANGUAGE_VALUE, RECENT_LANGUAGE_KEY } from '@/db/models';
+import { SUPPORT_LANGUAGES } from '@/db/models';
 import { safeLocalStorage } from '@/lib/storage';
 
 export function isSupportLanguage(
