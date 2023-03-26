@@ -13,7 +13,7 @@ const AppInfo = lazy(() => import('./components/app/AppInfo'));
 const Editor = lazy(() => import('./components/editor/Editor'));
 
 /**
- * children render in AppLayout.Main
+ * @description children render in AppLayout.Main
  */
 const router = createBrowserRouter([
   {
