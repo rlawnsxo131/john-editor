@@ -1,4 +1,18 @@
-import type { IndexedDBStore, SchemaName } from './models';
+export type Schema = 'support_language';
+
+export type SchemaName = Record<Schema, Schema>;
+
+export type IndexedDBStore = Readonly<{
+  name: Schema;
+  keyConfig: {
+    autoIncrement: boolean;
+    keyPath: 'language';
+  };
+  indexConfig: {
+    name: 'idx_language';
+    column: 'language';
+  };
+}>;
 
 export const INDEXED_DB_CONFIG = {
   name: 'john-editor',
