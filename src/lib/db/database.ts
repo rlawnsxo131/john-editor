@@ -1,4 +1,7 @@
-import { SUPPORT_LANGUAGES, SUPPORT_LAUNGUAGE_INITIAL_VALUE } from '@/models';
+import {
+  SUPPORT_LANGUAGES,
+  SUPPORT_LAUNGUAGE_INITIAL_VALUE,
+} from '@/lib/db/models';
 
 import {
   INDEXED_DB_CONFIG,

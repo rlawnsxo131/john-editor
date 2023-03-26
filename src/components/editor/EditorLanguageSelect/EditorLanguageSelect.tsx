@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 
 import Select from '@/components/system/Select';
 import useRefEffect from '@/hooks/useRefEffect';
-import type { SupportLanguage } from '@/models';
-import { SUPPORT_LANGUAGES } from '@/models';
+import type { SupportLanguage } from '@/lib/db/models';
+import { SUPPORT_LANGUAGES } from '@/lib/db/models';
 import { editorService, languageService } from '@/services';
 
 export default function EditorLanguageSelect() {

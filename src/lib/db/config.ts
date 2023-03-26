@@ -1,4 +1,4 @@
-import type { IndexedDBStore, SchemaName } from './types';
+import type { IndexedDBStore, SchemaName } from './models';
 
 export const INDEXED_DB_CONFIG = {
   name: 'john-editor',

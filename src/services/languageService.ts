@@ -1,9 +1,9 @@
 import { repository } from '@/lib/db';
 import { SCHEMA_NAME_OBJECT } from '@/lib/db';
+import type { LanguageRecord, SupportLanguage } from '@/lib/db/models';
+import { LANGUAGE_VALUE, RECENT_LANGUAGE_KEY } from '@/lib/db/models';
+import { SUPPORT_LANGUAGES } from '@/lib/db/models';
 import { safeLocalStorage } from '@/lib/storage';
-import type { LanguageRecord, SupportLanguage } from '@/models';
-import { LANGUAGE_VALUE, RECENT_LANGUAGE_KEY } from '@/models';
-import { SUPPORT_LANGUAGES } from '@/models';
 
 export function isSupportLanguage(
   value: SupportLanguage,
