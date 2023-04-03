@@ -1,11 +1,11 @@
 import { editor } from 'monaco-editor';
 
-import type { Theme } from '@/domain';
-
 export type MonacoModel = {
   value: string;
   language: string;
 };
+
+export type EditorTheme = 'light' | 'dark';
 
 export type EditorValueUpdateObject =
   | Record<'origin', string>
@@ -35,7 +35,7 @@ export default class Monaco {
   #editorContainer: EditorContainer | null = null;
   #editor: editor.IStandaloneDiffEditor | null = null;
 
-  private constructor(theme: Theme) {
+  private constructor(theme: EditorTheme) {
     editor.onDidCreateDiffEditor((_: editor.IDiffEditor) => {
       console.log('create diff editor');
     });
@@ -43,7 +43,7 @@ export default class Monaco {
     this.#onceCreateEditor(theme);
   }
 
-  static getInstance(theme?: Theme) {
+  static getInstance(theme?: EditorTheme) {
     if (!this.#instance) {
       if (!theme) throw new Error('Manaco initialization requires theme value');
       return (this.#instance = new this(theme));
@@ -61,7 +61,7 @@ export default class Monaco {
    * 같은 HTMLElement 참조를 보지 않기때문에 미리 고정된 HTMLElement 를 만들어 놓고,
    * 불필요한 monaco 재생성을 회피합니다.
    */
-  #onceCreateEditor(theme: Theme) {
+  #onceCreateEditor(theme: EditorTheme) {
     if (!this.#editorContainer) {
       const editorContainer = document.createElement('div');
       editorContainer.style.flex = '1';
@@ -127,7 +127,7 @@ export default class Monaco {
     return this;
   }
 
-  setTheme(theme: Theme) {
+  setTheme(theme: EditorTheme) {
     return editor.setTheme(this.#themeMap[theme]);
   }
 
