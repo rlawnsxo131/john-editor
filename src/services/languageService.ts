@@ -3,7 +3,7 @@ import { SCHEMA_NAME_OBJECT } from '@/db';
 import type { LanguageRecord, SupportLanguage } from '@/domain';
 import { LANGUAGE_VALUE, RECENT_LANGUAGE_KEY } from '@/domain';
 import { SUPPORT_LANGUAGES } from '@/domain';
-import type { EditorValueUpdateObject } from '@/lib/editor/Monaco';
+import type { EditorValueUpdateObject } from '@/lib/editor';
 import { safeLocalStorage } from '@/lib/storage';
 
 export function isSupportLanguage(

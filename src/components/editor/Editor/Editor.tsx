@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 
 import useRefEffect from '@/hooks/useRefEffect';
-import type { EditorValueUpdateObject } from '@/lib/editor/Monaco';
+import type { EditorValueUpdateObject } from '@/lib/editor';
 import { editorService, languageService, themeService } from '@/services';
 
 import { block, editor } from './Editor.css';

@@ -1,21 +1,11 @@
 import { editor } from 'monaco-editor';
 
-export type MonacoModel = {
-  value: string;
-  language: string;
-};
-
-export type EditorTheme = 'light' | 'dark';
-
-export type EditorValueUpdateObject =
-  | Record<'origin', string>
-  | Record<'modify', string>;
-
-export type EditorUpdateCallback = (
-  updateObject: EditorValueUpdateObject,
-) => any;
-
-export type EditorContainer<E extends HTMLElement = HTMLDivElement> = E;
+import type {
+  EditorContainer,
+  EditorTheme,
+  EditorUpdateCallback,
+  MonacoModel,
+} from './types';
 
 /**
  * @description get all actions: editor.getSupportedActions()
