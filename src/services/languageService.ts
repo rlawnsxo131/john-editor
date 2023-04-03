@@ -3,6 +3,7 @@ import { SCHEMA_NAME_OBJECT } from '@/db';
 import type { LanguageRecord, SupportLanguage } from '@/domain';
 import { LANGUAGE_VALUE, RECENT_LANGUAGE_KEY } from '@/domain';
 import { SUPPORT_LANGUAGES } from '@/domain';
+import type { EditorValueUpdateObject } from '@/lib/editor/Monaco';
 import { safeLocalStorage } from '@/lib/storage';
 
 export function isSupportLanguage(
@@ -29,6 +30,19 @@ export function getByKey(key: SupportLanguage) {
   );
 }
 
-export function putLanguageValue(newRecord: LanguageRecord) {
-  return repository.put(SCHEMA_NAME_OBJECT.support_language, newRecord);
+export function putLanguageValue(
+  recentLanguage: SupportLanguage,
+  newRecordValue: EditorValueUpdateObject,
+) {
+  return repository
+    .getByKey<LanguageRecord>(
+      SCHEMA_NAME_OBJECT.support_language,
+      recentLanguage,
+    )
+    .then((prevRecord) =>
+      repository.put(SCHEMA_NAME_OBJECT.support_language, {
+        ...prevRecord,
+        ...newRecordValue,
+      }),
+    );
 }

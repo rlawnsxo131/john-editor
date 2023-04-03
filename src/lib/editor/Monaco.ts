@@ -8,6 +8,14 @@ type MonacoModel = {
   language: SupportLanguage;
 };
 
+export type EditorValueUpdateObject =
+  | Record<'origin', string>
+  | Record<'modify', string>;
+
+export type EditorUpdateCallback = (
+  updateObject: EditorValueUpdateObject,
+) => any;
+
 /**
  * @description get all actions: editor.getSupportedActions()
  */
@@ -103,16 +111,21 @@ export default class Monaco {
    * origin 과 modify 에 이벤트가 비동기로 발생하는데,
    * 이 두 이벤트를 묶을 방법이 있나 고민해보자
    */
-  setUpdateCallback() {
+  setUpdateCallback(updateCallback: EditorUpdateCallback) {
     const models = this.#editor?.getModel();
     const origin = models?.original;
     const modify = models?.modified;
 
     origin?.onDidChangeContent((_) => {
-      console.log(origin.getValue());
+      updateCallback({
+        origin: origin.getValue(),
+      });
     });
+
     modify?.onDidChangeContent((_) => {
-      console.log(modify.getValue());
+      updateCallback({
+        modify: modify.getValue(),
+      });
     });
 
     return this;
