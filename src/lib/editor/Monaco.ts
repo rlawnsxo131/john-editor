@@ -1,11 +1,10 @@
 import { editor } from 'monaco-editor';
 
-import type { HtmlContainerElement } from '@/@types';
-import type { SupportLanguage, Theme } from '@/domain';
+import type { Theme } from '@/domain';
 
-type MonacoModel = {
+export type MonacoModel = {
   value: string;
-  language: SupportLanguage;
+  language: string;
 };
 
 export type EditorValueUpdateObject =
@@ -15,6 +14,8 @@ export type EditorValueUpdateObject =
 export type EditorUpdateCallback = (
   updateObject: EditorValueUpdateObject,
 ) => any;
+
+export type EditorContainer<E extends HTMLElement = HTMLDivElement> = E;
 
 /**
  * @description get all actions: editor.getSupportedActions()
@@ -31,7 +32,7 @@ export default class Monaco {
 
   static #instance: Monaco | null;
 
-  #editorContainer: HtmlContainerElement | null = null;
+  #editorContainer: EditorContainer | null = null;
   #editor: editor.IStandaloneDiffEditor | null = null;
 
   private constructor(theme: Theme) {
@@ -81,7 +82,7 @@ export default class Monaco {
     return this.#editorContainer;
   }
 
-  appendEditorFor(container: HtmlContainerElement) {
+  appendEditorFor(container: EditorContainer) {
     if (!this.#editorContainer)
       throw new Error('Manaco appendEditor method requires container');
 
@@ -106,11 +107,6 @@ export default class Monaco {
     return this;
   }
 
-  /**
-   * @TODO 업데이트 기능 추가하기
-   * origin 과 modify 에 이벤트가 비동기로 발생하는데,
-   * 이 두 이벤트를 묶을 방법이 있나 고민해보자
-   */
   setUpdateCallback(updateCallback: EditorUpdateCallback) {
     const models = this.#editor?.getModel();
     const origin = models?.original;
