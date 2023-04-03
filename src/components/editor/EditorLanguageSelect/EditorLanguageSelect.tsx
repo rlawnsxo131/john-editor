@@ -1,5 +1,5 @@
 import type { BaseSyntheticEvent, MouseEvent } from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import Select from '@/components/system/Select';
 import type { SupportLanguage } from '@/domain';
@@ -9,7 +9,9 @@ import { editorService, languageService } from '@/services';
 
 export default function EditorLanguageSelect() {
   const [visible, setVisible] = useState(false);
-  const [language, setLanguage] = useState<SupportLanguage>('json');
+  const [language, setLanguage] = useState<SupportLanguage>(
+    languageService.getRecentLanguage(),
+  );
 
   const handleVisible = () => setVisible((visible) => !visible);
 
@@ -51,10 +53,6 @@ export default function EditorLanguageSelect() {
     },
     [visible],
   );
-
-  useEffect(() => {
-    setLanguage(languageService.getRecentLanguage());
-  }, []);
 
   return (
     <Select ref={ref}>
