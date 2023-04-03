@@ -1,9 +1,9 @@
-export type SupportLanguage =
-  | 'json'
-  | 'javascript'
-  | 'typescript'
-  | 'graphql'
-  | 'html';
+/**
+ * @TODO typescript, graphql 지원하기
+ */
+export type SupportLanguage = 'json' | 'javascript' | 'html' | 'css';
+// | 'typescript'
+// | 'graphql'
 
 export type LanguageRecord = {
   language: SupportLanguage;
@@ -14,9 +14,10 @@ export type LanguageRecord = {
 export const SUPPORT_LANGUAGES: readonly SupportLanguage[] = [
   'json',
   'javascript',
-  'typescript',
-  'graphql',
   'html',
+  'css',
+  // 'typescript',
+  // 'graphql',
 ];
 
 export const SUPPORT_LAUNGUAGE_INITIAL_VALUE: Record<
@@ -31,20 +32,24 @@ export const SUPPORT_LAUNGUAGE_INITIAL_VALUE: Record<
     origin: "function hello() {\n  console.log('world');\n}",
     modify: "function hello() {\n  console.log('world');\n}",
   },
-  typescript: {
-    origin:
-      "type HelloWorld = Record<string, string>;\nconst helloWorld: HelloWorld = { hello: 'world' };",
-    modify:
-      "type HelloWorld = Record<string, string>;\nconst helloWorld: HelloWorld = { hello: 'world' };",
-  },
-  graphql: {
-    origin: 'query {\nhello {\n id\n name\n}\n }',
-    modify: 'query {\nhello {\n id\n name\n}\n }',
-  },
   html: {
     origin: '<div>hello world</div>',
     modify: '<div>hello world</div>',
   },
+  css: {
+    origin: '.root { position: absolute; }',
+    modify: '.root { position: absolute; }',
+  },
+  // typescript: {
+  //   origin:
+  //     "type HelloWorld = Record<string, string>;\nconst helloWorld: HelloWorld = { hello: 'world' };",
+  //   modify:
+  //     "type HelloWorld = Record<string, string>;\nconst helloWorld: HelloWorld = { hello: 'world' };",
+  // },
+  // graphql: {
+  //   origin: 'query {\nhello {\n id\n name\n}\n }',
+  //   modify: 'query {\nhello {\n id\n name\n}\n }',
+  // },
 } as const;
 
 type LanguageValue = Record<SupportLanguage, SupportLanguage>;
