@@ -2,8 +2,8 @@ import type { BaseSyntheticEvent, MouseEvent } from 'react';
 import { useEffect, useState } from 'react';
 
 import Select from '@/components/system/Select';
-import type { SupportLanguage } from '@/db/models';
-import { SUPPORT_LANGUAGES } from '@/db/models';
+import type { SupportLanguage } from '@/domain';
+import { SUPPORT_LANGUAGES } from '@/domain';
 import useRefEffect from '@/hooks/useRefEffect';
 import { editorService, languageService } from '@/services';
 

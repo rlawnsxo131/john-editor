@@ -1,13 +1,4 @@
-import {
-  SUPPORT_LANGUAGES,
-  SUPPORT_LAUNGUAGE_INITIAL_VALUE,
-} from '@/db/models';
-
-import {
-  INDEXED_DB_CONFIG,
-  INDEXED_DB_SCHEMA_CONFIG,
-  SCHEMA_NAME_OBJECT,
-} from './config';
+import { INDEXED_DB_CONFIG, INDEXED_DB_SCHEMA_CONFIG } from './config';
 
 type UpgradeCallback = (
   event: IDBVersionChangeEvent,
@@ -67,30 +58,4 @@ export function initializeDatabase() {
       console.log('current version:', db.version);
     }
   }).then((db) => db.close());
-}
-
-export function initializeSupportLanguageRecords() {
-  return new Promise<IDBValidKey[]>((resolve, reject) => {
-    openDatabase().then((db) => {
-      const tx = db.transaction(
-        SCHEMA_NAME_OBJECT.support_language,
-        'readwrite',
-      );
-      const store = tx.objectStore(SCHEMA_NAME_OBJECT.support_language);
-      const result: IDBValidKey[] = [];
-
-      SUPPORT_LANGUAGES.forEach((language) => {
-        const request = store.put({
-          language,
-          origin: SUPPORT_LAUNGUAGE_INITIAL_VALUE[language].origin,
-          modify: SUPPORT_LAUNGUAGE_INITIAL_VALUE[language].modify,
-        });
-
-        request.onsuccess = () => result.push(request.result);
-        request.onerror = () => reject(request.error);
-      });
-
-      resolve(result);
-    });
-  });
 }

@@ -1,7 +1,7 @@
 import { editor } from 'monaco-editor';
 
 import type { HtmlContainerElement } from '@/@types';
-import type { SupportLanguage, Theme } from '@/db/models';
+import type { SupportLanguage, Theme } from '@/domain';
 
 type MonacoModel = {
   value: string;

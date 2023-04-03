@@ -1,5 +1,5 @@
-import type { Theme } from '@/db/models';
-import { THEME_KEY, THEME_VALUE } from '@/db/models';
+import type { Theme } from '@/domain';
+import { THEME_KEY, THEME_VALUE } from '@/domain';
 import { safeLocalStorage } from '@/lib/storage';
 
 export function set(theme: Theme) {

@@ -1,5 +1,5 @@
 import type { HtmlContainerElement } from '@/@types';
-import type { SupportLanguage, Theme } from '@/db/models';
+import type { SupportLanguage, Theme } from '@/domain';
 import { Monaco } from '@/lib/editor';
 
 export function initializeEditor(
