@@ -29,6 +29,6 @@ globalStyle(`:root${themeDatasetSelector.light} :where(body, #root)`, {
   background: vars.color.white,
 });
 
-globalStyle('h1, h2, h3, h4, h5, h6', {
+globalStyle('h1, h2, h3, h4, h5, h6, p', {
   color: vars.color.gray12,
 });

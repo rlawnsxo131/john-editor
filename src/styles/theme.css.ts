@@ -10,7 +10,8 @@ type ColorKey =
   | keyof typeof cyan
   | keyof typeof gray
   | keyof typeof red
-  | keyof typeof staticColorVar;
+  | keyof typeof staticColorVar
+  | 'bg-content-sub';
 
 type ColorVar = Record<ColorKey, ColorKey>;
 
@@ -40,6 +41,7 @@ const lightColors = {
   ...gray,
   ...red,
   ...staticColorVar,
+  'bg-content-sub': staticColorVar.white,
 } as const;
 
 const darkColors = {
@@ -47,6 +49,7 @@ const darkColors = {
   ...grayDark,
   ...redDark,
   ...staticColorVar,
+  'bg-content-sub': grayDark.gray3,
 } as const;
 
 const keys = Object.keys(lightColors) as ColorKey[];

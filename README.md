@@ -17,6 +17,7 @@ A simple web editor based on Monaco Editor and IndexedDB.
 - Vite
 - React
 - vanilla-extract
+- IndexedDB
 - AWS(expected)
   - S3
   - Route53
