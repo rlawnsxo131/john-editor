@@ -8,8 +8,8 @@ export default function AppInfo() {
         <p>
           언젠가 보았던 web editor 를 찾으려다 기억이 안나서 만든 application
           입니다.
-          {'\n'} 이 Web Application 은 순수하게 web client 의 기술만으로
-          동작하고, IndexedDB 기반의 트랜젝션을 보장합니다.
+          {'\n'} 이 application 은 순수하게 web client 의 기술만으로 동작하고,
+          IndexedDB 기반의 트랜젝션을 보장합니다.
         </p>
       </section>
       <section className={contentSection}>
