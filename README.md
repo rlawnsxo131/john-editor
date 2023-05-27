@@ -27,3 +27,6 @@ A simple web editor based on Monaco Editor and IndexedDB.
 ### TODO
 
 - s3 old file(hash valid) remote work
+- meta tag(SEO)
+- GA
+- something other tasks
