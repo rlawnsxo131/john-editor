@@ -16,6 +16,7 @@ A simple web editor based on Monaco Editor and IndexedDB.
 - TypeScript
 - Vite
 - React
+- React Router
 - vanilla-extract
 - IndexedDB
 - AWS
