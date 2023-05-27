@@ -1,6 +1,6 @@
 # John Editor
 
-link:
+link: <https://john-editor.juntae.kim>
 
 ```
 A simple web editor based on Monaco Editor and IndexedDB.
