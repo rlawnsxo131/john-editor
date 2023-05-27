@@ -8,7 +8,7 @@ A simple web editor based on Monaco Editor and IndexedDB.
 
 ### Favicon Color Hex
 
-- #05a2c2(expected)
+- #05a2c2
 
 ### Tech Stack
 
@@ -18,10 +18,12 @@ A simple web editor based on Monaco Editor and IndexedDB.
 - React
 - vanilla-extract
 - IndexedDB
-- AWS(expected)
+- AWS
   - S3
   - Route53
   - CloudFront
-  - Lambda@Edge
-- Comment(expected)
-  - utterances
+  - Lambda@Edge(expected)
+
+### TODO
+
+- s3 old file(hash valid) remote work

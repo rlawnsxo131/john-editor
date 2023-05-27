@@ -10,6 +10,8 @@
     "start:dev": "vite --port 8000",
     "preview": "vite preview --port 8000",
     "build": "tsc && vite build",
+    "deploy:s3": "yarn build && aws s3 sync dist s3://john-editor.juntae.kim",
+    "cloudfront:invalidate": "aws cloudfront create-invalidation --distribution-id E2OT7WOYFZUZ2Q --paths '/*'",
     "test": "vitest"
   },
   "dependencies": {
@@ -44,7 +46,7 @@
     "jsdom": "^21.1.0",
     "prettier": "^2.8.4",
     "typescript": "4.9.3",
-    "vite": "^4.1.4",
+    "vite": "^4.3.9",
     "vite-plugin-checker": "^0.5.6",
     "vite-plugin-monaco-editor": "^1.1.0",
     "vitest": "^0.29.2"

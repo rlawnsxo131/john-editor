@@ -7,13 +7,20 @@ export default function AppInfo() {
         <h3>Description</h3>
         <ul>
           <li>
-            언젠가 보았던 web editor 를 찾으려다 기억이 안나서 만든 application
-            입니다.
+            언젠가 보았던 web editor 를 찾으려다 기억이 안나서 개발할때
+            사용하려고 만든 application 입니다.
           </li>
           <li>
             이 application 은 순수하게 web client 의 기술만으로 동작합니다.
           </li>
           <li>IndexedDB 기반의 트랜젝션을 보장합니다.</li>
+          <li>
+            원하는 기능, 버그가 있다면
+            <a href="https://github.com/rlawnsxo131/john-editor/issues">
+              issue
+            </a>
+            를 남겨주세요.
+          </li>
         </ul>
       </section>
       <section className={contentSection}>

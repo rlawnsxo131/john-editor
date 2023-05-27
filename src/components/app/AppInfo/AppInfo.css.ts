@@ -33,3 +33,19 @@ globalStyle(`${contentSection} ul`, {
   marginTop: '1rem',
   color: vars.color.gray12,
 });
+
+globalStyle(`${contentSection} a`, {
+  textDecoration: 'none',
+  fontSize: '1.25rem',
+  wordBreak: 'break-word',
+  overflowWrap: 'break-word',
+  whiteSpace: 'pre-line',
+  lineHeight: 1.725,
+  marginLeft: '0.25rem',
+  marginTop: '1rem',
+  color: vars.color.cyan9,
+});
+
+globalStyle(`${contentSection} a:hover`, {
+  textDecoration: 'underline',
+});
