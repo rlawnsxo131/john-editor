@@ -24,11 +24,12 @@ globalStyle(`${block} h3`, {
   fontSize: '1.5rem',
 });
 
-globalStyle(`${contentSection} p`, {
+globalStyle(`${contentSection} ul`, {
   fontSize: '1.25rem',
   wordBreak: 'break-word',
   overflowWrap: 'break-word',
   whiteSpace: 'pre-line',
   lineHeight: 1.725,
   marginTop: '1rem',
+  color: vars.color.gray12,
 });

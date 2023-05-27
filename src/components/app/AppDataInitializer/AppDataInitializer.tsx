@@ -6,7 +6,9 @@ import Loading from '@/components/common/Loading';
 import { initializeDatabase } from '@/db';
 import { domainService } from '@/domain';
 
-function AppDataInitializer({ children }: Required<PropsWithChildren>) {
+export default function AppDataInitializer({
+  children,
+}: Required<PropsWithChildren>) {
   const initialData = initializeDatabase().then(() =>
     domainService.initializeSupportLanguageRecords(),
   );
@@ -21,5 +23,3 @@ function AppDataInitializer({ children }: Required<PropsWithChildren>) {
     </Suspense>
   );
 }
-
-export default AppDataInitializer;

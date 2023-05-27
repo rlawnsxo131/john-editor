@@ -12,7 +12,7 @@ export default function Editor() {
     const updateCallback = debounce(
       (updateObject: EditorValueUpdateObject) =>
         languageService.putLanguageValue(recentLanguage, updateObject),
-      250,
+      50,
     );
 
     editorService
