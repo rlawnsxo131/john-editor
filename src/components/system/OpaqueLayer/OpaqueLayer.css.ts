@@ -1,7 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { vars } from '@/styles';
-import { zIndexes } from '@/styles';
+import { vars, zIndexes } from '@/styles';
 
 export const block = style({
   position: 'fixed',

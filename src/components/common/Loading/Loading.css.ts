@@ -1,7 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { rotateKeyframes } from '@/styles';
-import { zIndexes } from '@/styles';
+import { rotateKeyframes, zIndexes } from '@/styles';
 
 export const block = style({
   position: 'fixed',

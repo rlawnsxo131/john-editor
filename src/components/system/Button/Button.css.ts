@@ -1,7 +1,6 @@
 import { styleVariants } from '@vanilla-extract/css';
 
-import { buttonBaseStyle } from '@/styles';
-import { vars } from '@/styles';
+import { buttonBaseStyle, vars } from '@/styles';
 
 export const button = styleVariants({
   primary: [
